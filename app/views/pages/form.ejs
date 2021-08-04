@@ -1,0 +1,316 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/stylesheet.css" />
+    <title>Anamnese</title>
+</head>
+<body>
+    <header>
+        <h1>Anamnese</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a href="about.html">Sobre</a></li>
+                <li><a href="form.html">Ficha</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div>
+<!-- Dados pessoais -->
+            <form>
+                <fieldset>
+                    <legend>Dados pessoais </legend>
+
+                    <div>
+                        <label>Name:</label>
+                        <input type="text" />
+                        
+                        <label>Data de nascimento: </label>
+                        <input type="date" />
+                    </div>
+                    <div>
+                        <label>Endereço: </label>
+                        <input type="text" />
+
+                        <label>CEP: </label>
+                        <input type="number" />
+                    </div>
+                    <div>
+                        <label>Bairro: </label>
+                        <input type="text" />
+
+                        <label>Cidade: </label>
+                        <input type="text" />
+
+                        <label>Estado: </label>
+                        <select>
+                            <option value="0"> -- selecione -- </option>
+                            <option value="1">Acre</option>
+                            <option value="2">Alagoas</option>
+                            <option value="3">Amapá</option>
+                            <option value="4">Amazonas</option>
+                            <option value="5">Bahia</option>
+                            <option value="6">Ceará</option>
+                            <option value="7">Distrito Federal</option>
+                            <option value="8">Espírito Santo</option>
+                            <option value="9">Goiás</option>
+                            <option value="10">Maranhão</option>
+                            <option value="11">Mato Grosso</option>
+                            <option value="12">Mato Grosso do Sul</option>
+                            <option value="13">Minas Gerais</option>
+                            <option value="14">Pará</option>
+                            <option value="15">Paraíba</option>
+                            <option value="16">Paraná</option>
+                            <option value="17">Pernambuco</option>
+                            <option value="18">Piauí</option>
+                            <option value="19">Rio de Janeiro</option>
+                            <option value="20">Rio Grande do Norte</option>
+                            <option value="21">Rio Grande do Sul</option>
+                            <option value="22">Rondônia</option>
+                            <option value="23">Roraima</option>
+                            <option value="24">Santa Catarina</option>
+                            <option value="25">São Paulo</option>
+                            <option value="26">Sergipe</option>
+                            <option value="27">Tocantins</option>
+                        </select>
+
+
+                    </div>
+                    <div>
+                        <label>Email: </label>
+                        <input type="email" />
+
+                        <label>Telefone: </label>
+                        <input type="phone" />
+
+                        <label>Profissão: </label>
+                        <input type="text" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+<!-- Histórico de Saúde -->
+        <div>
+            <form>
+                <fieldset>
+                    <legend>Histórico de saúde </legend>
+                    <div>
+                        <div>
+                            <span>Gravidez: </span>
+
+                            <input type="radio" id="simGravidez" name="gravidez" value="Sim"/>
+                            <label for="simGravidez">Sim</label>
+                            <input type="radio" id="nãoGravidez" name="gravidez" value="Não"/>
+                            <label for="nãoGravidez">Não</label>
+                            <input type="radio" id="nãoSeAplicaGravidez" name="gravidez" value="Não se aplica"/>
+                            <label for="nãoSeAplicaGravidez">Não se aplica</label>
+                        </div>
+
+                        <div>
+                            <span>Amamentacão: </span>
+
+                            <input type="radio" id="simAmamentação" name="amamentação" value="Sim"/>
+                            <label for="simAmamentação">Sim</label>
+                            <input type="radio" id="nãoAmamentação" name="amamentação" value="Não"/>
+                            <label for="nãoAmamentação">Não</label>
+                            <input type="radio" id="nãoSeAplicaAmamentação" name="amamentação" value="Não se aplica"/>
+                            <label for="nãoSeAplicaAmamentação">Não se aplica</label>
+                        </div>
+                        <div>
+                            <span>Alergias: </span>
+
+                            <input type="radio" id="simAlergias" name="alergias" value="Sim"/>
+                            <label for="simAlergias">Sim</label>
+                            <input type="radio" id="nãoAlergias" name="alergias" value="Não"/>
+                            <label for="nãoAlergias">Não</label>
+                            <label for="quaisAlergias">Quais: </label>
+                            <input type="text" id="quaisAlergias" />
+                        </div>
+                        <div>
+                            <span>Doenças infantis: </span>
+
+                            <input type="radio" id="simInfantis" name="infantis" value="Sim"/>
+                            <label for="simInfantis">Sim</label>
+                            <input type="radio" id="nãoInfantis" name="infantis" value="Não"/>
+                            <label for="nãoInfantis">Não</label>
+                            <label for="quaisInfantis">Quais: </label>
+                            <input type="text" id="quaisInfantis" />
+                        </div>
+                        <div>
+                            <span>Cirurgias recentes: </span>
+
+                            <input type="radio" id="simCirurgias" name="cirurgias" value="Sim"/>
+                            <label for="simCirurgias">Sim</label>
+                            <input type="radio" id="nãoCirurgias" name="cirurgias" value="Não"/>
+                            <label for="nãoCirurgias">Não</label>
+                            <label for="quaisCirurgias">Quais: </label>
+                            <input type="text" id="quaisCirurgias" />
+                        </div>
+                    </div>
+                    
+                    <h3>Patologias</h3>
+
+                    <div class="linha">
+                        
+                        <div class="patologias1">
+                            <input type="checkbox" id="queloide" />
+                            <label for="queloide">Queloide</label><br>
+
+                            <input type="checkbox" id="cardiopatia" />
+                            <label for="cardiopatia">Cardiopatia</label><br>
+
+                            <input type="checkbox" id="epilepsia" />
+                            <label for="epilepsia">Epilepsia</label><br>
+
+                            <input type="checkbox" id="hipertensão" />
+                            <label for="hipertensão">Hipertensão</label><br>
+
+                            <input type="checkbox" id="problemaRenal" />
+                            <label for="problemaRenal">Problema renal</label><br>
+                        </div>
+
+                        <div class="patologias2">
+                            <input type="checkbox" id="problemaDermatológico" />
+                            <label for="problemaDermatológico">Problema dermatológico</label><br>
+
+                            <input type="checkbox" id="problemaRespiratório" />
+                            <label for="problemaRespiratório">Problema respiratório</label><br>
+
+                            <input type="checkbox" id="problemaCirculatório" />
+                            <label for="problemaCirculatório">Problema circulatório</label><br>
+
+                            <input type="checkbox" id="hemofilia" />
+                            <label for="hemofilia">Hemofilia</label><br>
+
+                            <input type="checkbox" id="doençasAutoimunes" />
+                            <label for="doençasAutoimunes">Doenças autoimunes</label><br>
+                        </div>
+
+                        <div class="patologias3">
+                            <input type="checkbox" id="câncer" />
+                            <label for="câncer">Câncer</label><br>
+
+                            <input type="checkbox" id="marca-passo" />
+                            <label for="marca-passo">Marca-passo</label><br>
+
+                            <input type="checkbox" id="diabetes" />
+                            <label for="diabetes">Diabetes</label><br>
+
+                            <input type="checkbox" id="hepatite" />
+                            <label for="hepatite">Hepatite</label><br>
+
+                            <input type="checkbox" id="anemia" />
+                            <label for="anemia">Anemia</label><br>
+                        </div>
+
+                        <!-- <label for=""></label>
+                        <input type="checkbox" id="" /> -->
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+<!-- Hábitos -->
+        <div>
+            <form>
+                <fieldset>
+                    <legend>Hábitos diários </legend>
+                    <div>
+                        <span>Fumo: </span>
+
+                        <input type="radio" id="simFumo" name="fumo" value="Sim"/>
+                        <label for="simFumo">Sim</label>
+                        <input type="radio" id="nãoFumo" name="fumo" value="Não"/>
+                        <label for="nãoFumo">Não</label>
+                        <label for="frequênciaFumo">Frequência: </label>
+                        <input type="text" id="frequênciaFumo" name="fumo" />
+                    </div>
+                    <div>
+                        <span>Álcool: </span>
+
+                        <input type="radio" id="simÁlcool" name="álcool" value="Sim"/>
+                        <label for="simÁlcool">Sim</label>
+                        <input type="radio" id="nãoÁlcool" name="álcool" value="Não"/>
+                        <label for="nãoÁlcool">Não</label>
+                        <label for="frequênciaÁlcool">Frequência: </label>
+                        <input type="text" id="frequênciaÁlcool" name="álcool" />
+                    </div>
+                    <div>
+                        <span>Medicamentos: </span>
+
+                        <input type="radio" id="simMedicamentos" name="medicamentos" value="Sim"/>
+                        <label for="simMedicamentos">Sim</label>
+                        <input type="radio" id="nãoMedicamentos" name="medicamentos" value="Não"/>
+                        <label for="nãoMedicamentos">Não</label>
+                        <label for="quaisMedicamentos">Quais: </label>
+                        <input type="text" id="quaisMedicamentos" name="medicamentos" />
+                    </div>
+                    <div>
+                        <span>Cosméticos na área a ser tratada: </span>
+
+                        <input type="radio" id="simCosméticos" name="cosméticos" value="Sim"/>
+                        <label for="simCosméticos">Sim</label>
+                        <input type="radio" id="nãoCosméticos" name="cosméticos" value="Não"/>
+                        <label for="nãoCosméticos">Não</label>
+                        <label for="quaisCosméticos">Quais: </label>
+                        <input type="text" id="quaisCosméticos" name="cosméticos" />
+                    </div>
+                    <div>
+                        <span>Exposição solar: </span>
+
+                        <input type="radio" id="simSolar" name="solar" value="Sim"/>
+                        <label for="simSolar">Sim</label>
+                        <input type="radio" id="nãoSolar" name="solar" value="Não"/>
+                        <label for="nãoSolar">Não</label>
+                        <label for="frequênciaSolar">Frequência: </label>
+                        <input type="text" id="frequênciaSolar" name="solar" />
+                    </div>
+                    <div>
+                        <span>Atividade Física: </span>
+
+                        <input type="radio" id="simAtividade" name="atividade" value="Sim"/>
+                        <label for="simAtividade">Sim</label>
+                        <input type="radio" id="nãoAtividade" name="atividade" value="Não"/>
+                        <label for="nãoAtividade">Não</label>
+                        <label for="frequênciaAtividade">Frequência: </label>
+                        <input type="text" id="frequênciaAtividade" name="atividade" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+<!-- Declaração de veracidade -->
+        <div>
+            <form>
+                <fieldset>
+                    <legend>Declaração de veracidade </legend>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet praesentium sequi
+                    quidem optio animi quasi officiis mollitia nemo et odit ipsam doloremque suscipit
+                    in natus esse saepe dignissimos neque nulla, delectus similique, enim distinctio. 
+                    Earum non dicta aspernatur facere consectetur accusantium ab officia impedit error 
+                    veritatis! Rem ullam odio, quia nobis quod officia tenetur, iure quo labore amet, 
+                    hic quas adipisci pariatur! Harum quae pariatur eos possimus sunt. Ipsam voluptatum 
+                    ab incidunt cumque consectetur delectus, sed aliquam molestias minima, architecto 
+                    laudantium nulla voluptate repellat libero, officia odit quasi rerum nemo minus 
+                    explicabo necessitatibus deserunt in quia? Tenetur iure provident, quia consequatur 
+                    commodi adipisci magnam atque minus vitae. Perspiciatis nostrum libero totam corporis, 
+                    dolor quas, porro deleniti laboriosam obcaecati laborum earum.</p>
+                </fieldset>
+            </form>
+        </div>
+        <div>
+            <input type="submit" value="Enviar" />
+        </div>
+    </main>
+
+    <footer>
+        <span>Todos os direitos reservados</span>
+    </footer>
+    
+</body>
+</html>

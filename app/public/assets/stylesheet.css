@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+header{
+    background-color: #3579B5;
+    color: white;
+    text-align: center;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+}
+
+a{
+    background-color: #ABCFFF;
+    color: black;
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgba(64,147,189, 0.20);
+}
+
+main{
+    text-align: center;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 auto;
+}
+
+footer{
+    margin: auto, 0, 0, 0;
+    text-align: center;
+    background-color: #3579B5;
+    color: white;
+}
+
+fieldset{
+    border-color: #3579B5;
+}
+
+legend{
+    font-size: larger;
+}
+
+/* .alergias{
+    color:chartreuse;
+    display: inline-block;
+    justify-content:space-between;
+    text-align: center;
+    min-width: 70vw;
+} */
+
+.patologias1, .patologias2, .patologias3{
+    width: 33%;
+}
+
+.linha{
+    display: flex;
+    flex-flow: row wrap;
+    text-align: left;
+    }
+
+.sobreTítulo{
+    color: #3579B5;
+    font-size: 20px;
+}
+
+.homePic{
+    width: 40%;
+    align-self: right;
+}
