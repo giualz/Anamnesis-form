@@ -12,9 +12,9 @@
         <h1>Anamnese</h1>
         <nav>
             <ul>
-                <li><a href="home.html">Início</a></li>
-                <li><a href="about.html">Sobre</a></li>
-                <li><a href="form.html">Ficha</a></li>
+                <li><a href="/">Início</a></li>
+                <li><a href="/about">Sobre</a></li>
+                <li><a href="/form">Ficha</a></li>
             </ul>
         </nav>
     </header>
@@ -103,53 +103,51 @@
                         <div>
                             <span>Gravidez: </span>
 
-                            <input type="radio" id="simGravidez" name="gravidez" value="Sim"/>
-                            <label for="simGravidez">Sim</label>
-                            <input type="radio" id="nãoGravidez" name="gravidez" value="Não"/>
-                            <label for="nãoGravidez">Não</label>
-                            <input type="radio" id="nãoSeAplicaGravidez" name="gravidez" value="Não se aplica"/>
-                            <label for="nãoSeAplicaGravidez">Não se aplica</label>
+                            <% gravidez.map((item) => { %>
+                            <input type="radio" id="<%= item.id %>" name="gravidez" value="<%= item.id %>"/>
+                            <label for="<%= item.id %>"><%= item.descricao %></label>
+                            <% }) %>
+
                         </div>
 
                         <div>
                             <span>Amamentacão: </span>
 
-                            <input type="radio" id="simAmamentação" name="amamentação" value="Sim"/>
-                            <label for="simAmamentação">Sim</label>
-                            <input type="radio" id="nãoAmamentação" name="amamentação" value="Não"/>
-                            <label for="nãoAmamentação">Não</label>
-                            <input type="radio" id="nãoSeAplicaAmamentação" name="amamentação" value="Não se aplica"/>
-                            <label for="nãoSeAplicaAmamentação">Não se aplica</label>
+                            <% amamentacao.map((item) => { %>
+                            <input type="radio" id="<%= item.id %>" name="amamentacao" value="<%= item.id %>"/>
+                            <label for="<%= item.id %>"><%= item.descricao %></label>
+                            <% }) %>
                         </div>
                         <div>
                             <span>Alergias: </span>
 
-                            <input type="radio" id="simAlergias" name="alergias" value="Sim"/>
-                            <label for="simAlergias">Sim</label>
-                            <input type="radio" id="nãoAlergias" name="alergias" value="Não"/>
-                            <label for="nãoAlergias">Não</label>
+                            <% alergias.map((item) => { %>
+                            <input type="radio" id="<%= item.id %>" name="alergias" value="<%= item.id %>"/>
+                            <label for="<%= item.id %>"><%= item.descricao %></label>
+                            <% }) %>
                             <label for="quaisAlergias">Quais: </label>
                             <input type="text" id="quaisAlergias" />
+                            
                         </div>
                         <div>
                             <span>Doenças infantis: </span>
 
-                            <input type="radio" id="simInfantis" name="infantis" value="Sim"/>
-                            <label for="simInfantis">Sim</label>
-                            <input type="radio" id="nãoInfantis" name="infantis" value="Não"/>
-                            <label for="nãoInfantis">Não</label>
-                            <label for="quaisInfantis">Quais: </label>
-                            <input type="text" id="quaisInfantis" />
+                            <% doencasInfantis.map((item) => { %>
+                            <input type="radio" id="<%= item.id %>" name="doencasInfantis" value="<%= item.id %>"/>
+                            <label for="<%= item.id %>"><%= item.descricao %></label>
+                            <% }) %>
+                            <label for="quaisDoençasInfantis">Quais: </label>
+                            <input type="text" id="quaisDoencasInfantis" />
                         </div>
                         <div>
                             <span>Cirurgias recentes: </span>
 
-                            <input type="radio" id="simCirurgias" name="cirurgias" value="Sim"/>
-                            <label for="simCirurgias">Sim</label>
-                            <input type="radio" id="nãoCirurgias" name="cirurgias" value="Não"/>
-                            <label for="nãoCirurgias">Não</label>
-                            <label for="quaisCirurgias">Quais: </label>
-                            <input type="text" id="quaisCirurgias" />
+                            <% cirurgiasRecentes.map((item) => { %>
+                            <input type="radio" id="<%= item.id %>" name="cirurgiasRecentes" value="<%= item.id %>"/>
+                            <label for="<%= item.id %>"><%= item.descricao %></label>
+                            <% }) %>
+                            <label for="quaisCirurgiasRecentes">Quais: </label>
+                            <input type="text" id="quaisCirurgiasRecentes" />
                         </div>
                     </div>
                     
