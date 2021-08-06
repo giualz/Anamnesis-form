@@ -27,9 +27,9 @@ const searchForID = (id) => {
         }
 })};
 
-const searchForDefinicao = ((definicao) => {
-    const result = definicao.filter((item) => {
-        item.definicao === definicao
+const searchForDescricao = ((descricao) => {
+    const result = descricao.filter((item) => {
+        item.descricao === descricao
         if(result.length > 0){
             return result[0]
         }else{
@@ -41,5 +41,5 @@ const searchForDefinicao = ((definicao) => {
 module.exports = {
     list,
     searchForID,
-    searchForDefinicao
+    searchForDescricao
 }

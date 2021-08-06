@@ -1,4 +1,4 @@
-const gravidezDB = [
+const exposicaoSolarDB = [
     { 
         id: 1,
         descricao: "Sim"
@@ -6,15 +6,11 @@ const gravidezDB = [
     { 
         id: 2,
         descricao: "Não"        
-    },
-    {
-        id: 3,
-        descricao: "Não se aplica"
     }
 ];
 
 const list = () => {
-    return gravidezDB
+    return exposicaoSolarDB
 };
 
 const searchForID = (id) => {

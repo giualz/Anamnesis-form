@@ -27,7 +27,10 @@
                     <legend>Dados pessoais </legend>
 
                     <div>
-                        <label>Name:</label>
+                        <label>Name: </label>
+                        <input type="text" />
+
+                        <label>Pronomes: </label>
                         <input type="text" />
                         
                         <label>Data de nascimento: </label>
@@ -48,38 +51,12 @@
                         <input type="text" />
 
                         <label>Estado: </label>
-                        <select>
+                        <select required>
                             <option value="0"> -- selecione -- </option>
-                            <option value="1">Acre</option>
-                            <option value="2">Alagoas</option>
-                            <option value="3">Amapá</option>
-                            <option value="4">Amazonas</option>
-                            <option value="5">Bahia</option>
-                            <option value="6">Ceará</option>
-                            <option value="7">Distrito Federal</option>
-                            <option value="8">Espírito Santo</option>
-                            <option value="9">Goiás</option>
-                            <option value="10">Maranhão</option>
-                            <option value="11">Mato Grosso</option>
-                            <option value="12">Mato Grosso do Sul</option>
-                            <option value="13">Minas Gerais</option>
-                            <option value="14">Pará</option>
-                            <option value="15">Paraíba</option>
-                            <option value="16">Paraná</option>
-                            <option value="17">Pernambuco</option>
-                            <option value="18">Piauí</option>
-                            <option value="19">Rio de Janeiro</option>
-                            <option value="20">Rio Grande do Norte</option>
-                            <option value="21">Rio Grande do Sul</option>
-                            <option value="22">Rondônia</option>
-                            <option value="23">Roraima</option>
-                            <option value="24">Santa Catarina</option>
-                            <option value="25">São Paulo</option>
-                            <option value="26">Sergipe</option>
-                            <option value="27">Tocantins</option>
+                            <% estados.map((item) => { %>
+                            <option value="<%= item.id %>"><%= item.value %></option>
+                            <% }) %>
                         </select>
-
-
                     </div>
                     <div>
                         <label>Email: </label>
@@ -221,62 +198,62 @@
                     <div>
                         <span>Fumo: </span>
 
-                        <input type="radio" id="simFumo" name="fumo" value="Sim"/>
-                        <label for="simFumo">Sim</label>
-                        <input type="radio" id="nãoFumo" name="fumo" value="Não"/>
-                        <label for="nãoFumo">Não</label>
-                        <label for="frequênciaFumo">Frequência: </label>
-                        <input type="text" id="frequênciaFumo" name="fumo" />
+                        <% fumo.map((item) => { %>
+                        <input type="radio" id="<%= item.id %>" name="fumo" value="<%= item.id %>"/>
+                        <label for="<%= item.id %>"><%= item.descricao %></label>
+                        <% }) %>
+                        <label for="frequenciaFumo">Frequência: </label>
+                        <input type="text" id="frequenciaFumo" />
                     </div>
                     <div>
                         <span>Álcool: </span>
 
-                        <input type="radio" id="simÁlcool" name="álcool" value="Sim"/>
-                        <label for="simÁlcool">Sim</label>
-                        <input type="radio" id="nãoÁlcool" name="álcool" value="Não"/>
-                        <label for="nãoÁlcool">Não</label>
-                        <label for="frequênciaÁlcool">Frequência: </label>
-                        <input type="text" id="frequênciaÁlcool" name="álcool" />
+                        <% alcool.map((item) => { %>
+                        <input type="radio" id="<%= item.id %>" name="alcool" value="<%= item.id %>"/>
+                        <label for="<%= item.id %>"><%= item.descricao %></label>
+                        <% }) %>
+                        <label for="frequenciaAlcool">Frequência: </label>
+                        <input type="text" id="frequenciaAlcool" />
                     </div>
                     <div>
                         <span>Medicamentos: </span>
 
-                        <input type="radio" id="simMedicamentos" name="medicamentos" value="Sim"/>
-                        <label for="simMedicamentos">Sim</label>
-                        <input type="radio" id="nãoMedicamentos" name="medicamentos" value="Não"/>
-                        <label for="nãoMedicamentos">Não</label>
-                        <label for="quaisMedicamentos">Quais: </label>
-                        <input type="text" id="quaisMedicamentos" name="medicamentos" />
+                        <% medicamentos.map((item) => { %>
+                        <input type="radio" id="<%= item.id %>" name="medicamentos" value="<%= item.id %>"/>
+                        <label for="<%= item.id %>"><%= item.descricao %></label>
+                        <% }) %>
+                        <label for="quaisMedicamentos">Medicamentos: </label>
+                        <input type="text" id="quaisMedicamentos" />
                     </div>
                     <div>
                         <span>Cosméticos na área a ser tratada: </span>
 
-                        <input type="radio" id="simCosméticos" name="cosméticos" value="Sim"/>
-                        <label for="simCosméticos">Sim</label>
-                        <input type="radio" id="nãoCosméticos" name="cosméticos" value="Não"/>
-                        <label for="nãoCosméticos">Não</label>
-                        <label for="quaisCosméticos">Quais: </label>
-                        <input type="text" id="quaisCosméticos" name="cosméticos" />
+                        <% cosmeticos.map((item) => { %>
+                        <input type="radio" id="<%= item.id %>" name="cosmeticos" value="<%= item.id %>"/>
+                        <label for="<%= item.id %>"><%= item.descricao %></label>
+                        <% }) %>
+                        <label for="quaisCosmeticos">Quais: </label>
+                        <input type="text" id="quaisCosmeticos" />
                     </div>
                     <div>
                         <span>Exposição solar: </span>
 
-                        <input type="radio" id="simSolar" name="solar" value="Sim"/>
-                        <label for="simSolar">Sim</label>
-                        <input type="radio" id="nãoSolar" name="solar" value="Não"/>
-                        <label for="nãoSolar">Não</label>
-                        <label for="frequênciaSolar">Frequência: </label>
-                        <input type="text" id="frequênciaSolar" name="solar" />
+                        <% exposicaoSolar.map((item) => { %>
+                        <input type="radio" id="<%= item.id %>" name="exposicaoSolar" value="<%= item.id %>"/>
+                        <label for="<%= item.id %>"><%= item.descricao %></label>
+                        <% }) %>
+                        <label for="frequenciaExposicaoSolar">Frequência: </label>
+                        <input type="text" id="frequenciaExposicaoSolar" />
                     </div>
                     <div>
                         <span>Atividade Física: </span>
 
-                        <input type="radio" id="simAtividade" name="atividade" value="Sim"/>
-                        <label for="simAtividade">Sim</label>
-                        <input type="radio" id="nãoAtividade" name="atividade" value="Não"/>
-                        <label for="nãoAtividade">Não</label>
-                        <label for="frequênciaAtividade">Frequência: </label>
-                        <input type="text" id="frequênciaAtividade" name="atividade" />
+                        <% atividadeFisica.map((item) => { %>
+                        <input type="radio" id="<%= item.id %>" name="atividadeFisica" value="<%= item.id %>"/>
+                        <label for="<%= item.id %>"><%= item.descricao %></label>
+                        <% }) %>
+                        <label for="frequenciaAtividadeFisica">Quais: </label>
+                        <input type="text" id="frequenciaAtividadeFisica" />
                     </div>
                 </fieldset>
             </form>
