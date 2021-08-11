@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/stylesheet.css" />
-    <title>Anamnese</title>
-</head>
+    <%- include("../../components/head.ejs"); %>
 <body>
-    <header>
-        <h1>Anamnese</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Início</a></li>
-                <li><a href="/about">Sobre</a></li>
-                <li><a href="/form">Ficha</a></li>
-            </ul>
-    </header>
-
+    <%- include("../../components/header.ejs"); %>
     <main>
-        <h2 class="sobreTítulo">Projeto</h2>
-        <h2 class="sobreTítulo">Modo de uso</h2>
-        <h2 class="sobreTítulo">Desenvolvedora</h2>
+    <h2 class="sobreTítulo">Desenvolvedora</h2>
+
+    <p>Desenvolvido por Giulia Alzuguir</p>
+
+    <div >
+        <img src="./images/githubIcon.png" alt="github icon" class="socialMedia" />
+        <img src="./images/linkedinIcon.png" alt="linkedin icon" class="socialMedia" />
+        <img src="./images/instagramIcon.png" alt="instagram icon" class="socialMedia" />
+    </div>
+   
     </main>
 
-    <footer>
-        <span>Todos os direitos reservados</span>
-    </footer>
+    <%- include("../../components/footer.ejs"); %>
 </body>
 </html>

@@ -1,23 +1,8 @@
 <!-- <!DOCTYPE html> -->
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/stylesheet.css" />
-    <title>Anamnese</title>
-</head>
+    <%- include("../../components/head.ejs"); %>
 <body>
-    <header>
-        <h1>Anamnese</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Início</a></li>
-                <li><a href="/about">Sobre</a></li>
-                <li><a href="/form">Ficha</a></li>
-            </ul>
-        </nav>
-    </header>
+    <%- include("../../components/header.ejs"); %>
 
     <main>
         <div>
@@ -27,30 +12,30 @@
                     <legend>Dados pessoais </legend>
 
                     <div>
-                        <label>Name: </label>
+                        <label name="nome">Nome: </label>
                         <input type="text" />
 
-                        <label>Pronomes: </label>
+                        <label name="pronomes">Pronomes: </label>
                         <input type="text" />
                         
-                        <label>Data de nascimento: </label>
+                        <label name="dataDeNascimento">Data de nascimento: </label>
                         <input type="date" />
                     </div>
                     <div>
-                        <label>Endereço: </label>
+                        <label name="endereco">Endereço: </label>
                         <input type="text" />
 
-                        <label>CEP: </label>
+                        <label name="cep">CEP: </label>
                         <input type="number" />
                     </div>
                     <div>
-                        <label>Bairro: </label>
+                        <label name="bairro">Bairro: </label>
                         <input type="text" />
 
-                        <label>Cidade: </label>
+                        <label name="cidade">Cidade: </label>
                         <input type="text" />
 
-                        <label>Estado: </label>
+                        <label name="estado">Estado: </label>
                         <select required>
                             <option value="0"> -- selecione -- </option>
                             <% estados.map((item) => { %>
@@ -59,13 +44,13 @@
                         </select>
                     </div>
                     <div>
-                        <label>Email: </label>
+                        <label name="email">Email: </label>
                         <input type="email" />
 
-                        <label>Telefone: </label>
+                        <label name="telefone">Telefone: </label>
                         <input type="phone" />
 
-                        <label>Profissão: </label>
+                        <label name="profissao">Profissão: </label>
                         <input type="text" />
                     </div>
                 </fieldset>
@@ -84,7 +69,6 @@
                             <input type="radio" id="<%= item.id %>" name="gravidez" value="<%= item.id %>"/>
                             <label for="<%= item.id %>"><%= item.descricao %></label>
                             <% }) %>
-
                         </div>
 
                         <div>
@@ -103,18 +87,18 @@
                             <label for="<%= item.id %>"><%= item.descricao %></label>
                             <% }) %>
                             <label for="quaisAlergias">Quais: </label>
-                            <input type="text" id="quaisAlergias" />
+                            <input type="text" name="quaisAlergias" id="quaisAlergias" />
                             
                         </div>
                         <div>
-                            <span>Doenças infantis: </span>
+                            <span name="doencasInfantis">Doenças infantis: </span>
 
                             <% doencasInfantis.map((item) => { %>
                             <input type="radio" id="<%= item.id %>" name="doencasInfantis" value="<%= item.id %>"/>
                             <label for="<%= item.id %>"><%= item.descricao %></label>
                             <% }) %>
                             <label for="quaisDoençasInfantis">Quais: </label>
-                            <input type="text" id="quaisDoencasInfantis" />
+                            <input type="text" name="quaisDoencasInfantis id="quaisDoencasInfantis" />
                         </div>
                         <div>
                             <span>Cirurgias recentes: </span>
@@ -124,7 +108,7 @@
                             <label for="<%= item.id %>"><%= item.descricao %></label>
                             <% }) %>
                             <label for="quaisCirurgiasRecentes">Quais: </label>
-                            <input type="text" id="quaisCirurgiasRecentes" />
+                            <input type="text" name="quaisCirurgiasRecentes" id="quaisCirurgiasRecentes" />
                         </div>
                     </div>
                     
@@ -133,54 +117,26 @@
                     <div class="linha">
                         
                         <div class="patologias1">
-                            <input type="checkbox" id="queloide" />
-                            <label for="queloide">Queloide</label><br>
-
-                            <input type="checkbox" id="cardiopatia" />
-                            <label for="cardiopatia">Cardiopatia</label><br>
-
-                            <input type="checkbox" id="epilepsia" />
-                            <label for="epilepsia">Epilepsia</label><br>
-
-                            <input type="checkbox" id="hipertensão" />
-                            <label for="hipertensão">Hipertensão</label><br>
-
-                            <input type="checkbox" id="problemaRenal" />
-                            <label for="problemaRenal">Problema renal</label><br>
+                            <% patologias1.map((item) => { %>
+                            <input type="checkbox" name="patologias1" id="<%= item.id %>" value="<%= item.id %>"/>
+                            <label for="<%= item.id %>"><%= item.descricao %></label><br>
+                            <% }) %>
+                                  
                         </div>
 
                         <div class="patologias2">
-                            <input type="checkbox" id="problemaDermatológico" />
-                            <label for="problemaDermatológico">Problema dermatológico</label><br>
-
-                            <input type="checkbox" id="problemaRespiratório" />
-                            <label for="problemaRespiratório">Problema respiratório</label><br>
-
-                            <input type="checkbox" id="problemaCirculatório" />
-                            <label for="problemaCirculatório">Problema circulatório</label><br>
-
-                            <input type="checkbox" id="hemofilia" />
-                            <label for="hemofilia">Hemofilia</label><br>
-
-                            <input type="checkbox" id="doençasAutoimunes" />
-                            <label for="doençasAutoimunes">Doenças autoimunes</label><br>
+                            <% patologias2.map((item) => { %>
+                            <input type="checkbox" name="patologias2" id="<%= item.id %>" value="<%= item.id %>"/>
+                            <label for="<%= item.id %>"><%= item.descricao %></label><br>
+                            <% }) %>
                         </div>
 
                         <div class="patologias3">
-                            <input type="checkbox" id="câncer" />
-                            <label for="câncer">Câncer</label><br>
+                            <% patologias3.map((item) => { %>
+                            <input type="checkbox" name="patologias3" id="<%= item.id %>" value="<%= item.id %>"/>
+                            <label for="<%= item.id %>"><%= item.descricao %></label><br>
 
-                            <input type="checkbox" id="marca-passo" />
-                            <label for="marca-passo">Marca-passo</label><br>
-
-                            <input type="checkbox" id="diabetes" />
-                            <label for="diabetes">Diabetes</label><br>
-
-                            <input type="checkbox" id="hepatite" />
-                            <label for="hepatite">Hepatite</label><br>
-
-                            <input type="checkbox" id="anemia" />
-                            <label for="anemia">Anemia</label><br>
+                            <% }) %>
                         </div>
 
                         <!-- <label for=""></label>
@@ -203,7 +159,7 @@
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
                         <label for="frequenciaFumo">Frequência: </label>
-                        <input type="text" id="frequenciaFumo" />
+                        <input type="text" name="frequenciaFumo" id="frequenciaFumo" />
                     </div>
                     <div>
                         <span>Álcool: </span>
@@ -213,7 +169,7 @@
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
                         <label for="frequenciaAlcool">Frequência: </label>
-                        <input type="text" id="frequenciaAlcool" />
+                        <input type="text" name="frequenciaAlcool" id="frequenciaAlcool" />
                     </div>
                     <div>
                         <span>Medicamentos: </span>
@@ -222,8 +178,8 @@
                         <input type="radio" id="<%= item.id %>" name="medicamentos" value="<%= item.id %>"/>
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
-                        <label for="quaisMedicamentos">Medicamentos: </label>
-                        <input type="text" id="quaisMedicamentos" />
+                        <label for="quaisMedicamentos">Quais: </label>
+                        <input type="text" name="quaisMedicamentos" id="quaisMedicamentos" />
                     </div>
                     <div>
                         <span>Cosméticos na área a ser tratada: </span>
@@ -233,7 +189,7 @@
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
                         <label for="quaisCosmeticos">Quais: </label>
-                        <input type="text" id="quaisCosmeticos" />
+                        <input type="text" name="quaisCosmeticos" id="quaisCosmeticos" />
                     </div>
                     <div>
                         <span>Exposição solar: </span>
@@ -243,7 +199,7 @@
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
                         <label for="frequenciaExposicaoSolar">Frequência: </label>
-                        <input type="text" id="frequenciaExposicaoSolar" />
+                        <input type="text" name="frequenciaExposicaoSolar" id="frequenciaExposicaoSolar" />
                     </div>
                     <div>
                         <span>Atividade Física: </span>
@@ -253,7 +209,7 @@
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
                         <label for="frequenciaAtividadeFisica">Quais: </label>
-                        <input type="text" id="frequenciaAtividadeFisica" />
+                        <input type="text" name="frequenciaAtividadeFisica" id="frequenciaAtividadeFisica" />
                     </div>
                 </fieldset>
             </form>
@@ -283,9 +239,6 @@
         </div>
     </main>
 
-    <footer>
-        <span>Todos os direitos reservados</span>
-    </footer>
-    
+    <%- include("../../components/footer.ejs"); %>
 </body>
 </html>

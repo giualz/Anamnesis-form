@@ -1,30 +1,26 @@
 <!-- <!DOCTYPE html> -->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/stylesheet.css" />
-    <title>Anamnese</title>
-</head>
+    <%- include("../../components/head.ejs"); %>
 <body>
-    <header>
-        <h1>Anamnese</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Início</a></li>
-                <li><a href="/about">Sobre</a></li>
-                <li><a href="/form">Ficha</a></li>
-            </ul>
-    </header>
+    <%- include("../../components/header.ejs"); %>
 
     <main>
+        <div class="container">
         <!-- já tá dentro do public essa caceta -->
         <img class="homePic" src="images/picHome.png" alt="Image by rawpixel.com" />
+        <div class="homeText">
+        <p>Essa aplicação web foi desenvolvida como parte do Projeto 1 do Bootcamp de 
+        Desenvolvimento Full Stack do Instituto Infnet.</p><br>
+        <h2>Forma de uso:</h2>
+        <p>O usuário poderá preencher um formulário de anamnese voltado para procedimentos 
+        estéticos. Ao submetê-lo, a aplicação fará uma verificação dos dados. Havendo erros,
+        o formulário será retornado para conferência e alterações. Caso contrário, será gerado
+        um pdf formatado contendo todas as informações.</p>
+        </div>
+        </div>
+
     </main>
 
-    <footer>
-        <span>Todos os direitos reservados</span>
-    </footer>
+    <%- include("../../components/footer.ejs"); %>
 </body>
 </html>

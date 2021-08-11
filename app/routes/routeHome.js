@@ -1,4 +1,4 @@
-const {controllerGetHome} = require("../../controllers/controllerHome");
+const {controllerGetHome} = require("../controllers/controllerHome");
 
 
 //só exporta a função, que é o middleware

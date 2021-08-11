@@ -1,4 +1,4 @@
-const {controllerGetForm} = require("../../controllers/controllerForm");
+const {controllerGetForm} = require("../controllers/controllerForm");
 
 module.exports = (routerForm) => {
     routerForm.route("/form")

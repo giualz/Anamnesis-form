@@ -1,17 +1,17 @@
 const express = require("express");
 
 
-const middlewareHome = require("./middlewares/middlewareHome");
-const middlewareAbout = require("./middlewares/middlewareAbout");
-const middlewareForm = require("./middlewares/middlewareForm");
+const routeHome = require("./routeHome");
+const routeAbout = require("./routeAbout");
+const routeForm = require("./routeForm");
 
 //app = express()
 //express.Router = função do express para routes
 module.exports = (app) => {
     const router = express.Router();
-    middlewareHome(router);
-    middlewareAbout(router);
-    middlewareForm(router);
+    routeHome(router);
+    routeAbout(router);
+    routeForm(router);
     app.use("", router)
     //usa a barra vazia do express.Router()
 };

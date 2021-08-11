@@ -9,6 +9,7 @@ routes(app);
 app.set("view engine", "ejs");
 
 //tell express where the view folder is
+//__dirname brings it up to app
 app.set("views", path.join(__dirname, "views"))
 
 //access to static files

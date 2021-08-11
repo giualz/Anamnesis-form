@@ -1,4 +1,4 @@
-const {controllerGetAbout} = require ("../../controllers/controllerAbout");
+const {controllerGetAbout} = require ("../controllers/controllerAbout");
 
 module.exports = (routerAbout) => {
     routerAbout.route("/about")
