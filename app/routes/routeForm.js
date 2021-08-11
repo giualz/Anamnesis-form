@@ -1,8 +1,8 @@
 const {controllerGetForm} = require("../controllers/controllerForm");
-const middlewarDtoValidate = require("../utils/dtoValidade");
+const middlewareDtoValidate = require("../utils/dtoValidade");
 
 module.exports = (routerForm) => {
     routerForm.route("/form")
     .get(controllerGetForm)
-    .post(middlewarDtoValidate("body", controllerGetForm.postFormSchema), controllerGetForm.postFormSchema)
+    .post(middlewareDtoValidate("body", controllerGetForm.postFormSchema), controllerGetForm.postFormSchema)
 }

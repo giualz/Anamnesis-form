@@ -3,6 +3,9 @@ const app = express();
 const path = require("path");
 const routes = require("./routes/routes");
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 routes(app);
 
 // set ejs as view engine
