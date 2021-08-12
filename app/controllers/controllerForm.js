@@ -15,7 +15,10 @@ const patologias2DB = require("../models/historicoDeSaude/patologias2Model");
 const patologias3DB = require("../models/historicoDeSaude/patologias3Model");
 
 const Joi = require("joi");
+const fs = require("fs");
 const ejs = require("ejs");
+const htmlToPdf = require("html-pdf-node");
+const path = require("path");
 
 const controllerGetForm = (req, res, next) => {
     const viewModel = {
@@ -75,9 +78,11 @@ const postFormSchema = Joi.object({
     atividadeFisica: Joi.number().required(),
     frequenciaAtividadeFisica: Joi.string(),
     informacoesAdicionais2: Joi.string()
-})
+});
 
 const postForm = (req, res, next) => {
+
+    //montar o viewmodel
     const{ nome, pronomes, dataDeNascimento, endereco, cep, bairro, cidade, estado, email, telefone, 
     profissao, gravidez, amamentacao, alergias, quaisAlergias, doencasInfantis, quaisDoencasInfantis, 
     cirurgiasRecentes, quaisCirurgiasRecentes, patologias1, patologias2, patologias3, informacoesAdicionais1, 
@@ -137,7 +142,30 @@ const postForm = (req, res, next) => {
     atividadeFisica: atividadeFisicaSelecionado.descricao, 
     frequenciaAtividadeFisica, 
     informacoesAdicionais2
-    }
+    };
+
+    //montar o html
+    const filePath = path.join(__dirname, "../views/pages/formPdf.ejs");
+    const templateHtml = fs.readFileSync(filePath, "utf8");
+
+    //montar o pdf
+    const htmlPronto = ejs.render(templateHtml, pdfViewModel);
+
+    //retornar o pdf
+    const file = {
+        content: htmlPronto  
+      };
+    
+      const configuracoes = {
+        format: 'A4',
+        printBackground: true
+      };
+    
+    htmlToPdf.generatePdf(file, configuracoes)
+    .then((resultPromise) => {
+        res.contentType("application/pdf");
+        res.send(resultPromise);
+    });
 }
 
 module.exports = {
