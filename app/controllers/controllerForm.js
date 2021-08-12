@@ -36,49 +36,50 @@ const controllerGetForm = (req, res, next) => {
         medicamentos: medicamentosDB.list(),
         patologias1: patologias1DB.list(),
         patologias2: patologias2DB.list(),
-        patologias3: patologias3DB.list()
+        patologias3: patologias3DB.list(),
+        patologiasTotal: patologias1DB.list().concat(patologias2DB, patologias3DB)
     }
     res.render("pages/form", viewModel)
 };
 
 const postFormSchema = Joi.object({
     nome: Joi.string().min(2).required(),
-    pronomes: Joi.string(),
+    pronomes: Joi.string().allow(""),
     dataDeNascimento: Joi.date().iso().required(),
     endereco: Joi.string().required(),
     cep: Joi.number().required(),
     bairro: Joi.string().min(2).required(),
     cidade: Joi.string().min(2).required(),
     estado: Joi.number().required(),
-    email: Joi.string().email(),
-    telefone: Joi.number().min(8).max(15).required(),
-    profissao: Joi.string(),
+    email: Joi.string().email().allow(""),
+    telefone: Joi.number().required(),
+    profissao: Joi.string().allow(""),
     gravidez: Joi.number().required(),
     amamentacao: Joi.number().required(),
     alergias: Joi.number().required(),
-    quaisAlergias: Joi.string(),
+    quaisAlergias: Joi.string().allow(""),
     doencasInfantis: Joi.number().required(),
-    quaisDoencasInfantis: Joi.string(),
+    quaisDoencasInfantis: Joi.string().allow(""),
     cirurgiasRecentes: Joi.number().required(),
-    quaisCirurgiasRecentes: Joi.string(),
-    patologias1: Joi.array(),
-    patologias2: Joi.array(),
-    patologias3: Joi.array(),
-    informacoesAdicionais1: Joi.string(),
+    quaisCirurgiasRecentes: Joi.string().allow(""),
+    patologias1: Joi.array().allow(""),
+    patologias2: Joi.array().allow(""),
+    patologias3: Joi.array().allow(""),
+    informacoesAdicionais1: Joi.string().allow(""),
     fumo: Joi.number().required(),
-    frequenciaFumo: Joi.string(),
+    frequenciaFumo: Joi.string().allow(""),
     alcool: Joi.number().required(),
-    frequenciaAlcool: Joi.string(),
+    frequenciaAlcool: Joi.string().allow(""),
     medicamentos: Joi.number().required(),
-    quaisMedicamentos: Joi.string(),
+    quaisMedicamentos: Joi.string().allow(""),
     cosmeticos: Joi.number().required(),
-    quaisCosmeticos: Joi.string(),
+    quaisCosmeticos: Joi.string().allow(""),
     exposicaoSolar: Joi.number().required(),
-    frequenciaExposicaoSolar: Joi.string(),
+    frequenciaExposicaoSolar: Joi.string().allow(""),
     atividadeFisica: Joi.number().required(),
-    frequenciaAtividadeFisica: Joi.string(),
-    informacoesAdicionais2: Joi.string()
-});
+    frequenciaAtividadeFisica: Joi.string().allow(""),
+    informacoesAdicionais2: Joi.string().allow(""),
+}).options({allowUnknown: true});
 
 const postForm = (req, res, next) => {
 
@@ -89,6 +90,7 @@ const postForm = (req, res, next) => {
     fumo, frequenciaFumo, alcool, frequenciaAlcool, medicamentos, quaisMedicamentos, cosmeticos, 
     quaisCosmeticos, exposicaoSolar, frequenciaExposicaoSolar, atividadeFisica, frequenciaAtividadeFisica, 
     informacoesAdicionais2 } = req.body;
+    console.log(req.body)
     const estadoSelecionado = estadosDB.searchForID(estado);
     const gravidezSelecionado = gravidezDB.searchForID(gravidez);
     const amamentacaoSelecionado = amamentacaoDB.searchForID(amamentacao);
@@ -113,7 +115,7 @@ const postForm = (req, res, next) => {
     cep, 
     bairro, 
     cidade, 
-    estado: estadoSelecionado.value, 
+    estado: estadoSelecionado.descricao, 
     email, 
     telefone, 
     profissao, 

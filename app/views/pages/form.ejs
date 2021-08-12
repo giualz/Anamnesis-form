@@ -7,58 +7,56 @@
     <main>
         <div>
 <!-- Dados pessoais -->
-            <form>
+            <form action="/form" method="POST">
                 <fieldset>
                     <legend>Dados pessoais </legend>
 
                     <div>
-                        <label name="nome">Nome: </label>
-                        <input type="text" />
+                        <label for="nome">Nome: </label>
+                        <input name="nome" type="text" id="nome"/>
 
-                        <label name="pronomes">Pronomes: </label>
-                        <input type="text" />
+                        <label for="pronomes">Pronomes: </label>
+                        <input name="pronomes" type="text" id="pronomes" />
                         
-                        <label name="dataDeNascimento">Data de nascimento: </label>
-                        <input type="date" />
+                        <label for="dataDeNascimento">Data de nascimento: </label>
+                        <input name="dataDeNascimento" type="date" id="dataDeNascimento"/>
                     </div>
                     <div>
-                        <label name="endereco">Endereço: </label>
-                        <input type="text" />
+                        <label for="endereco">Endereço: </label>
+                        <input name="endereco" type="text" id="endereco"/>
 
-                        <label name="cep">CEP: </label>
-                        <input type="number" />
+                        <label for="cep">CEP: </label>
+                        <input name="cep" type="number" id="cep" />
                     </div>
                     <div>
-                        <label name="bairro">Bairro: </label>
-                        <input type="text" />
+                        <label for="bairro">Bairro: </label>
+                        <input name="bairro" type="text" id="bairro" />
 
-                        <label name="cidade">Cidade: </label>
-                        <input type="text" />
+                        <label for="cidade">Cidade: </label>
+                        <input name="cidade" type="text" id="cidade"/>
 
-                        <label name="estado">Estado: </label>
-                        <select required>
+                        <label for="estado">Estado: </label>
+                        <select name="estado" id="estado" required>
                             <option value="0"> -- selecione -- </option>
                             <% estados.map((item) => { %>
-                            <option value="<%= item.id %>"><%= item.value %></option>
+                            <option value="<%= item.id %>"><%= item.descricao %></option>
                             <% }) %>
                         </select>
                     </div>
                     <div>
-                        <label name="email">Email: </label>
-                        <input type="email" />
+                        <label for="email">Email: </label>
+                        <input name="email" type="email" id="email" />
 
-                        <label name="telefone">Telefone: </label>
-                        <input type="phone" />
+                        <label for="telefone">Telefone: </label>
+                        <input name="telefone" type="phone" id="telefone"/>
 
-                        <label name="profissao">Profissão: </label>
-                        <input type="text" />
+                        <label for="profissao">Profissão: </label>
+                        <input name="profissao" type="text" id="profissao"/>
                     </div>
                 </fieldset>
-            </form>
         </div>
 <!-- Histórico de Saúde -->
         <div>
-            <form>
                 <fieldset>
                     <legend>Histórico de saúde </legend>
                     <div>
@@ -139,21 +137,19 @@
                             <% }) %>
                         </div>
                         <div>
-                            <input name="informacoesAdicionais1" id="informacoesAdicionais1" />
                             <label type="text" for="informacoesAdicionais1" >Insira informações adicionais que 
                             julgar necessárias: </label>
+                            <input name="informacoesAdicionais1" id="informacoesAdicionais1" />
                         </div>
 
                         <!-- <label for=""></label>
                         <input type="checkbox" id="" /> -->
                     </div>
                 </fieldset>
-            </form>
         </div>
 
 <!-- Hábitos -->
         <div>
-            <form>
                 <fieldset>
                     <legend>Hábitos diários </legend>
                     <div>
@@ -217,17 +213,15 @@
                         <input type="text" name="frequenciaAtividadeFisica" id="frequenciaAtividadeFisica" />
                     </div>
                     <div>
-                        <input name="informacoesAdicionais2" id="informacoesAdicionais2" />
                         <label type="text" for="informacoesAdicionais2">Insira informações adicionais que 
                         julgar necessárias: </label>
+                        <input name="informacoesAdicionais2" id="informacoesAdicionais2" />
                     </div>
                 </fieldset>
-            </form>
         </div>
 
 <!-- Declaração de veracidade -->
         <div>
-            <form>
                 <fieldset>
                     <legend>Declaração de veracidade </legend>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet praesentium sequi
@@ -235,18 +229,13 @@
                     in natus esse saepe dignissimos neque nulla, delectus similique, enim distinctio. 
                     Earum non dicta aspernatur facere consectetur accusantium ab officia impedit error 
                     veritatis! Rem ullam odio, quia nobis quod officia tenetur, iure quo labore amet, 
-                    hic quas adipisci pariatur! Harum quae pariatur eos possimus sunt. Ipsam voluptatum 
-                    ab incidunt cumque consectetur delectus, sed aliquam molestias minima, architecto 
-                    laudantium nulla voluptate repellat libero, officia odit quasi rerum nemo minus 
-                    explicabo necessitatibus deserunt in quia? Tenetur iure provident, quia consequatur 
-                    commodi adipisci magnam atque minus vitae. Perspiciatis nostrum libero totam corporis, 
-                    dolor quas, porro deleniti laboriosam obcaecati laborum earum.</p>
+                    hic quas adipisci pariatur! Harum quae pariatur eos possimus sunt.</p>
                 </fieldset>
-            </form>
+            <div>
+                <button>Enviar</button>
+            </div>    
         </div>
-        <div>
-            <input type="submit" value="Enviar" />
-        </div>
+        </form>
     </main>
 
     <%- include("../../components/footer.ejs"); %>

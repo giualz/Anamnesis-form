@@ -1,111 +1,111 @@
 const estadosDB = [
     {
-        id: 'AC',
-        value: 'Acre'
+        id: 1,
+        descricao: 'Acre'
     },
     {
-        id: 'AL',
-        value: 'Alagoas'
+        id: 2,
+        descricao: 'Alagoas'
     },
     {
-        id: 'AP',
-        value: 'Amapá'
+        id: 3,
+        descricao: 'Amapá'
     },
     {
-        id: 'AM',
-        value: 'Amazonas'
+        id: 4,
+        descricao: 'Amazonas'
     },
     {
-        id: 'BA',
-        value: 'Bahia'
+        id: 5,
+        descricao: 'Bahia'
     },
     {
-        id: 'CE',
-        value: 'Ceará'
+        id: 6,
+        descricao: 'Ceará'
     },
     {
-        id: 'DF',
-        value: 'Distrito Federal'
+        id: 7,
+        descricao: 'Distrito Federal'
     },
     {
-        id: 'ES',
-        value: 'Espírito Santo'
+        id: 8,
+        descricao: 'Espírito Santo'
     },
     {
-        id: 'GO',
-        value: 'Goiás'
+        id: 9,
+        descricao: 'Goiás'
     },
     {
-        id: 'MA',
-        value: 'Maranhão'
+        id: 10,
+        descricao: 'Maranhão'
     },
     {
-        id: 'MT',
-        value: 'Mato Grosso'
+        id: 11,
+        descricao: 'Mato Grosso'
     },
     {
-        id: 'MS',
-        value: 'Mato Grosso do Sul'
+        id: 12,
+        descricao: 'Mato Grosso do Sul'
     },
     {
-        id: 'MG',
-        value: 'Minas Gerais'
+        id: 13,
+        descricao: 'Minas Gerais'
     },
     {
-        id: 'PA',
-        value: 'Pará'
+        id: 14,
+        descricao: 'Pará'
     },
     {
-        id: 'PB',
-        value: 'Paraíba'
+        id: 15,
+        descricao: 'Paraíba'
     },
     {
-        id: 'PR',
-        value: 'Paraná'
+        id: 16,
+        descricao: 'Paraná'
     },
     {
-        id: 'PE',
-        value: 'Pernambuco'
+        id: 17,
+        descricao: 'Pernambuco'
     },
     {
-        id: 'PI',
-        value: 'Piauí'
+        id: 18,
+        descricao: 'Piauí'
     },
     {
-        id: 'RJ',
-        value: 'Rio de Janeiro'
+        id: 19,
+        descricao: 'Rio de Janeiro'
     },
     {
-        id: 'RN',
-        value: 'Rio Grande do Norte'
+        id: 20,
+        descricao: 'Rio Grande do Norte'
     },
     {
-        id: 'RS',
-        value: 'Rio Grande do Sul'
+        id: 21,
+        descricao: 'Rio Grande do Sul'
     },
     {
-        id: 'RO',
-        value: 'Rondônia'
+        id: 22,
+        descricao: 'Rondônia'
     },
     {
-        id: 'RR',
-        value: 'Roraima'
+        id: 23,
+        descricao: 'Roraima'
     },
     {
-        id: 'SC',
-        value: 'Santa Catarina'
+        id: 24,
+        descricao: 'Santa Catarina'
     },
     {
-        id: 'SP',
-        value: 'São Paulo'
+        id: 25,
+        descricao: 'São Paulo'
     },
     {
-        id: 'SE',
-        value: 'Sergipe'
+        id: 26,
+        descricao: 'Sergipe'
     },
     {
-        id: 'TO',
-        value: 'Tocantins'
+        id: 27,
+        descricao: 'Tocantins'
     }
 ]
 
@@ -114,18 +114,19 @@ const list = () => {
 };
 
 const searchForID = (id) => {
-    const result = id.filter((item) => {
-        item.id === id
-        if(result.length > 0){
+    const result = estadosDB.filter((item) => {
+        return parseInt(item.id) === parseInt(id)
+    })
+    if(result.length > 0){
             return result[0]
         }else{
             return undefined
         }
-})};
+    }
 
-const searchForValue = ((value) => {
-    const result = value.filter((item) => {
-        item.value === definicao
+const searchForDescricao = ((descricao) => {
+    const result = descricao.filter((item) => {
+        item.descricao === descricao
         if(result.length > 0){
             return result[0]
         }else{
@@ -137,5 +138,5 @@ const searchForValue = ((value) => {
 module.exports = {
     list,
     searchForID,
-    searchForValue
+    searchForDescricao
 }

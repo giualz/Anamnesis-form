@@ -69,6 +69,10 @@ legend{
     width: 33%;
 }
 
+/* .parte1, .parte2{
+    width: 50%
+} */
+
 .linha{
     display: flex;
     flex-flow: row wrap;
