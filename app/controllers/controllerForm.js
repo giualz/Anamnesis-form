@@ -42,6 +42,10 @@ const controllerGetForm = (req, res, next) => {
     res.render("pages/form", viewModel)
 };
 
+let patologias1 = req.body.patologias1
+patologias1 = [...patologias1]
+req.body = {...req.body, patologias1}
+
 const postFormSchema = Joi.object({
     nome: Joi.string().min(2).required(),
     pronomes: Joi.string().allow(""),
@@ -62,9 +66,9 @@ const postFormSchema = Joi.object({
     quaisDoencasInfantis: Joi.string().allow(""),
     cirurgiasRecentes: Joi.number().required(),
     quaisCirurgiasRecentes: Joi.string().allow(""),
-    patologias1: Joi.array().allow(""),
-    patologias2: Joi.array().allow(""),
-    patologias3: Joi.array().allow(""),
+    patologias1: Joi.array().items(Joi.number()),
+    patologias2: Joi.array().items(Joi.number()),
+    patologias3: Joi.array().items(Joi.number()),
     informacoesAdicionais1: Joi.string().allow(""),
     fumo: Joi.number().required(),
     frequenciaFumo: Joi.string().allow(""),
@@ -106,6 +110,10 @@ const postForm = (req, res, next) => {
     const cosmeticosSelecionado = cosmeticosDB.searchForID(cosmeticos);
     const exposicaoSolarSelecionado = exposicaoSolarDB.searchForID(exposicaoSolar);
     const atividadeFisicaSelecionado = atividadeFisicaDB.searchForID(atividadeFisica);
+
+    if (!patologias1Selecionado.descricao){
+        patologias1Selecionado.descricao = "";
+    } 
 
     const pdfViewModel = {
     nome, 
