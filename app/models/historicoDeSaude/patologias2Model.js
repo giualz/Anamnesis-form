@@ -1,22 +1,22 @@
 const patologias2DB = [
     { 
-        id: 6,
+        id: 0,
         descricao: "Problema dermatológico"
     },
     { 
-        id: 7,
+        id: 1,
         descricao: "Problema respiratório"        
     },
     {
-        id: 8,
+        id: 2,
         descricao: "Problema circulatório"
     },
     { 
-        id: 9,
+        id: 3,
         descricao: "Hemofilia"
     },
     { 
-        id: 10,
+        id: 4,
         descricao: "Doenças autoimunes"        
     }
 ];
@@ -26,15 +26,26 @@ const list = () => {
 };
 
 const searchForID = (id) => {
-    const result = patologias2DB.filter((item) => {
-        return parseInt(item.id) === parseInt(id)
-    })
-    if(result.length > 0){
-            return result[0]
-        }else{
-            return undefined
+    let result = []
+    // console.log(id);
+        if (Array.isArray(id)) {
+            id.forEach(item => {
+                result.push(patologias2DB[item].descricao)
+            })
+            // console.log(result)
+            return result
         }
-    }
+}
+
+    // const result = patologias2DB.filter((item) => {
+    //     return parseInt(item.id) === parseInt(id)
+    // })
+    // if(result.length > 0){
+    //         return result[0]
+    //     }else{
+    //         return undefined
+    //     }
+    // }
 
 const searchForDescricao = ((descricao) => {
     const result = descricao.filter((item) => {

@@ -36,15 +36,100 @@ const controllerGetForm = (req, res, next) => {
         medicamentos: medicamentosDB.list(),
         patologias1: patologias1DB.list(),
         patologias2: patologias2DB.list(),
-        patologias3: patologias3DB.list(),
-        patologiasTotal: patologias1DB.list().concat(patologias2DB, patologias3DB)
+        patologias3: patologias3DB.list()
+        // patologiasTotal: patologias1DB.list().concat(patologias2DB, patologias3DB)
     }
     res.render("pages/form", viewModel)
 };
 
-let patologias1 = req.body.patologias1
-patologias1 = [...patologias1]
-req.body = {...req.body, patologias1}
+const postForm = (req, res, next) => {
+    
+    //montar o viewmodel
+    const{ nome, pronomes, dataDeNascimento, endereco, cep, bairro, cidade, estado, email, telefone, 
+        profissao, gravidez, amamentacao, alergias, quaisAlergias, doencasInfantis, quaisDoencasInfantis, 
+        cirurgiasRecentes, quaisCirurgiasRecentes, informacoesAdicionais1, patologias1, patologias2, patologias3,
+        fumo, frequenciaFumo, alcool, frequenciaAlcool, medicamentos, quaisMedicamentos, cosmeticos, 
+        quaisCosmeticos, exposicaoSolar, frequenciaExposicaoSolar, atividadeFisica, frequenciaAtividadeFisica, 
+        informacoesAdicionais2 } = req.body;
+        
+        const estadoSelecionado = estadosDB.searchForID(estado);
+        const gravidezSelecionado = gravidezDB.searchForID(gravidez);
+        const amamentacaoSelecionado = amamentacaoDB.searchForID(amamentacao);
+        const alergiasSelecionado = alergiasDB.searchForID(alergias);
+        const doencasInfantisSelecionado = doencasInfantisDB.searchForID(doencasInfantis);
+        const cirurgiasRecentesSelecionado = cirurgiasRecentesDB.searchForID(cirurgiasRecentes);
+        const patologias1Selecionado = patologias1 ? patologias1DB.searchForID(patologias1) : patologias1Selecionado = []
+        const patologias2Selecionado = patologias2 ? patologias2DB.searchForID(patologias2) : patologias2Selecionado = []
+        const patologias3Selecionado = patologias3 ? patologias3DB.searchForID(patologias3) : patologias3Selecionado = []
+        const fumoSelecionado = fumoDB.searchForID(fumo);
+        const alcoolSelecionado = alcoolDB.searchForID(alcool);
+        const medicamentosSelecionado = medicamentosDB.searchForID(medicamentos);
+        const cosmeticosSelecionado = cosmeticosDB.searchForID(cosmeticos);
+        const exposicaoSolarSelecionado = exposicaoSolarDB.searchForID(exposicaoSolar);
+        const atividadeFisicaSelecionado = atividadeFisicaDB.searchForID(atividadeFisica);
+        
+        const pdfViewModel = {
+            nome, 
+            pronomes, 
+            dataDeNascimento, 
+            endereco, 
+            cep, 
+            bairro, 
+            cidade, 
+            estado: estadoSelecionado.descricao, 
+            email, 
+            telefone, 
+            profissao, 
+            gravidez: gravidezSelecionado.descricao, 
+            amamentacao: amamentacaoSelecionado.descricao, 
+            alergias: alergiasSelecionado.descricao, 
+            quaisAlergias, 
+            doencasInfantis: doencasInfantisSelecionado.descricao, 
+            quaisDoencasInfantis, 
+            cirurgiasRecentes: cirurgiasRecentesSelecionado.descricao, 
+            quaisCirurgiasRecentes, 
+            patologias1: patologias1Selecionado, 
+            patologias2: patologias2Selecionado, 
+            patologias3: patologias3Selecionado, 
+            informacoesAdicionais1, 
+            fumo: fumoSelecionado.descricao, 
+            frequenciaFumo, 
+            alcool: alcoolSelecionado.descricao, 
+            frequenciaAlcool, 
+            medicamentos: medicamentosSelecionado.descricao, 
+            quaisMedicamentos, 
+            cosmeticos: cosmeticosSelecionado.descricao, 
+            quaisCosmeticos, 
+            exposicaoSolar: exposicaoSolarSelecionado.descricao, 
+            frequenciaExposicaoSolar, 
+            atividadeFisica: atividadeFisicaSelecionado.descricao, 
+            frequenciaAtividadeFisica, 
+            informacoesAdicionais2
+        };
+        
+        //montar o html
+        const filePath = path.join(__dirname, "../views/pages/formPdf.ejs");
+        const templateHtml = fs.readFileSync(filePath, "utf8");
+        
+        //montar o pdf
+        const htmlPronto = ejs.render(templateHtml, pdfViewModel);
+        
+        //retornar o pdf
+        const file = {
+            content: htmlPronto  
+        };
+        
+        const configuracoes = {
+            format: 'A4',
+        printBackground: true
+    };
+    
+    htmlToPdf.generatePdf(file, configuracoes)
+    .then((resultPromise) => {
+        res.contentType("application/pdf");
+        res.send(resultPromise);
+    });
+}
 
 const postFormSchema = Joi.object({
     nome: Joi.string().min(2).required(),
@@ -83,103 +168,10 @@ const postFormSchema = Joi.object({
     atividadeFisica: Joi.number().required(),
     frequenciaAtividadeFisica: Joi.string().allow(""),
     informacoesAdicionais2: Joi.string().allow(""),
-}).options({allowUnknown: true});
-
-const postForm = (req, res, next) => {
-
-    //montar o viewmodel
-    const{ nome, pronomes, dataDeNascimento, endereco, cep, bairro, cidade, estado, email, telefone, 
-    profissao, gravidez, amamentacao, alergias, quaisAlergias, doencasInfantis, quaisDoencasInfantis, 
-    cirurgiasRecentes, quaisCirurgiasRecentes, patologias1, patologias2, patologias3, informacoesAdicionais1, 
-    fumo, frequenciaFumo, alcool, frequenciaAlcool, medicamentos, quaisMedicamentos, cosmeticos, 
-    quaisCosmeticos, exposicaoSolar, frequenciaExposicaoSolar, atividadeFisica, frequenciaAtividadeFisica, 
-    informacoesAdicionais2 } = req.body;
-    console.log(req.body)
-    const estadoSelecionado = estadosDB.searchForID(estado);
-    const gravidezSelecionado = gravidezDB.searchForID(gravidez);
-    const amamentacaoSelecionado = amamentacaoDB.searchForID(amamentacao);
-    const alergiasSelecionado = alergiasDB.searchForID(alergias);
-    const doencasInfantisSelecionado = doencasInfantisDB.searchForID(doencasInfantis);
-    const cirurgiasRecentesSelecionado = cirurgiasRecentesDB.searchForID(cirurgiasRecentes);
-    const patologias1Selecionado = patologias1DB.searchForID(patologias1);
-    const patologias2Selecionado = patologias2DB.searchForID(patologias2);
-    const patologias3Selecionado = patologias3DB.searchForID(patologias3);
-    const fumoSelecionado = fumoDB.searchForID(fumo);
-    const alcoolSelecionado = alcoolDB.searchForID(alcool);
-    const medicamentosSelecionado = medicamentosDB.searchForID(medicamentos);
-    const cosmeticosSelecionado = cosmeticosDB.searchForID(cosmeticos);
-    const exposicaoSolarSelecionado = exposicaoSolarDB.searchForID(exposicaoSolar);
-    const atividadeFisicaSelecionado = atividadeFisicaDB.searchForID(atividadeFisica);
-
-    if (!patologias1Selecionado.descricao){
-        patologias1Selecionado.descricao = "";
-    } 
-
-    const pdfViewModel = {
-    nome, 
-    pronomes, 
-    dataDeNascimento, 
-    endereco, 
-    cep, 
-    bairro, 
-    cidade, 
-    estado: estadoSelecionado.descricao, 
-    email, 
-    telefone, 
-    profissao, 
-    gravidez: gravidezSelecionado.descricao, 
-    amamentacao: amamentacaoSelecionado.descricao, 
-    alergias: alergiasSelecionado.descricao, 
-    quaisAlergias, 
-    doencasInfantis: doencasInfantisSelecionado.descricao, 
-    quaisDoencasInfantis, 
-    cirurgiasRecentes: cirurgiasRecentesSelecionado.descricao, 
-    quaisCirurgiasRecentes, 
-    patologias1: patologias1Selecionado.descricao, 
-    patologias2: patologias2Selecionado.descricao, 
-    patologias3: patologias3Selecionado.descricao, 
-    informacoesAdicionais1, 
-    fumo: fumoSelecionado.descricao, 
-    frequenciaFumo, 
-    alcool: alcoolSelecionado.descricao, 
-    frequenciaAlcool, 
-    medicamentos: medicamentosSelecionado.descricao, 
-    quaisMedicamentos, 
-    cosmeticos: cosmeticosSelecionado.descricao, 
-    quaisCosmeticos, 
-    exposicaoSolar: exposicaoSolarSelecionado.descricao, 
-    frequenciaExposicaoSolar, 
-    atividadeFisica: atividadeFisicaSelecionado.descricao, 
-    frequenciaAtividadeFisica, 
-    informacoesAdicionais2
-    };
-
-    //montar o html
-    const filePath = path.join(__dirname, "../views/pages/formPdf.ejs");
-    const templateHtml = fs.readFileSync(filePath, "utf8");
-
-    //montar o pdf
-    const htmlPronto = ejs.render(templateHtml, pdfViewModel);
-
-    //retornar o pdf
-    const file = {
-        content: htmlPronto  
-      };
-    
-      const configuracoes = {
-        format: 'A4',
-        printBackground: true
-      };
-    
-    htmlToPdf.generatePdf(file, configuracoes)
-    .then((resultPromise) => {
-        res.contentType("application/pdf");
-        res.send(resultPromise);
-    });
-}
+}).options({ allowUnknown: true });
 
 module.exports = {
     controllerGetForm,
-    postFormSchema,
-    postForm
+    postForm,
+    postFormSchema
 }

@@ -1,22 +1,22 @@
 const patologias1DB = [
     { 
-        id: 1,
+        id: 0,
         descricao: "Queloide"
     },
     { 
-        id: 2,
-        descricao: "Cardiopatia"        
+        id: 1,
+        descricao: "Cardiopatia"
     },
     {
-        id: 3,
+        id: 2,
         descricao: "Epilepsia"
     },
     { 
-        id: 4,
+        id: 3,
         descricao: "Hipertensão"
     },
     { 
-        id: 5,
+        id: 4,
         descricao: "Problema renal"        
     }
 ];
@@ -26,15 +26,23 @@ const list = () => {
 };
 
 const searchForID = (id) => {
-    const result = patologias1DB.filter((item) => {
-        return parseInt(item.id) === parseInt(id)
-    })
-    if(result.length > 0){
-            return result[0]
-        }else{
-            return undefined
-        }
+    let result = []
+    if (Array.isArray(id)) {
+        id.forEach(item => {
+            result.push(patologias1DB[item].descricao)
+        })
+        return result
     }
+}
+    // result = patologias1DB.filter((item) => {
+    //     return parseInt(item.id) === parseInt(id)
+    // })
+    // if(result.length > 0){
+    //         return result[0]
+    //     }else{
+    //         return undefined
+    //     }
+    // }
 
 const searchForDescricao = ((descricao) => {
     const result = descricao.filter((item) => {

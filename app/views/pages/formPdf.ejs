@@ -17,9 +17,29 @@ doencasInfantis: <%= doencasInfantis %>
 quaisDoencasInfantis: <%= quaisDoencasInfantis %>
 cirurgiasRecentes: <%= cirurgiasRecentes %>
 quaisCirurgiasRecentes: <%= quaisCirurgiasRecentes %>
-patologias1: <%= patologias1 %>
-patologias2: <%= patologias2 %>
-patologias3: <%= patologias3 %>
+
+    <% if (!patologias1) {  %>
+        patologias1:
+    <% } %>
+    
+    <% patologias1.forEach((patologia1) => { %>
+        <p><%= patologia1 %></p>
+    <% }) %>
+
+    <% if (!patologias2) {  %>                    
+        patologias2: 
+    <% } %>
+    <% patologias2.forEach((patologia2) => { %>
+        <p><%= patologia2 %></p>
+    <% }) %>
+                    
+    <% if (!patologias3) {  %>
+    patologias3:
+    <% } %>
+    
+    <% patologias3.forEach((patologia3) => { %>
+        <p><%= patologia3 %></p>
+    <% }) %>
 informacoesAdicionais1: <%= informacoesAdicionais1 %>
 fumo: <%= fumo %>
 frequenciaFumo: <%= frequenciaFumo %>

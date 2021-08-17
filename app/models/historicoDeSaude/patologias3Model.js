@@ -1,22 +1,22 @@
 const patologias3DB = [
     { 
-        id: 11,
+        id: 0,
         descricao: "Câncer"
     },
     { 
-        id: 12,
+        id: 1,
         descricao: "Marca-passo"        
     },
     {
-        id: 13,
+        id: 2,
         descricao: "Diabetes"
     },
     { 
-        id: 14,
+        id: 3,
         descricao: "Hepatite"
     },
     { 
-        id: 15,
+        id: 4,
         descricao: "Anemia"
     }
 ];
@@ -26,15 +26,25 @@ const list = () => {
 };
 
 const searchForID = (id) => {
-    const result = patologias3DB.filter((item) => {
-        return parseInt(item.id) === parseInt(id)
-    })
-    if(result.length > 0){
-            return result[0]
-        }else{
-            return undefined
+    let result = []
+        if (Array.isArray(id)) {
+            id.forEach(item => {
+                result.push(patologias3DB[item].descricao)
+            })
+            return result
         }
-    }
+}
+
+// const searchForID = (id) => {
+//     const result = patologias3DB.filter((item) => {
+//         return parseInt(item.id) === parseInt(id)
+//     })
+//     if(result.length > 0){
+//             return result[0]
+//         }else{
+//             return undefined
+//         }
+//     }
 
 const searchForDescricao = ((descricao) => {
     const result = descricao.filter((item) => {
