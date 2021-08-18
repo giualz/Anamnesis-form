@@ -1,56 +1,96 @@
-nome: <%= nome %> 
-pronomes: <%= pronomes %>
-dataDeNascimento: <%= dataDeNascimento %>
-endereco: <%= endereco %>
-cep: <%= cep %>
-bairro: <%= bairro %>
-cidade: <%= cidade %>
-estado: <%= estado %>
-email: <%= email %>
-telefone: <%= telefone %>
-profissao: <%= profissao %>
-gravidez: <%= gravidez %>
-amamentacao: <%= amamentacao %>
-alergias: <%= alergias %>
-quaisAlergias: <%= quaisAlergias %>
-doencasInfantis: <%= doencasInfantis %>
-quaisDoencasInfantis: <%= quaisDoencasInfantis %>
-cirurgiasRecentes: <%= cirurgiasRecentes %>
-quaisCirurgiasRecentes: <%= quaisCirurgiasRecentes %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
 
-    <% if (!patologias1) {  %>
-        patologias1:
-    <% } %>
-    
-    <% patologias1.forEach((patologia1) => { %>
-        <p><%= patologia1 %></p>
-    <% }) %>
+    </header>
+    <main>
+        <h1>Ficha de Anamese para Estética</h1>
 
-    <% if (!patologias2) {  %>                    
-        patologias2: 
-    <% } %>
-    <% patologias2.forEach((patologia2) => { %>
-        <p><%= patologia2 %></p>
-    <% }) %>
+        <h2>Dados Pessoais</h2>
+        <div>
+            nome: <%= nome %> 
+            pronomes: <%= pronomes %>
+            dataDeNascimento: <%= dataDeNascimento %>
+            endereco: <%= endereco %>
+            cep: <%= cep %>
+            bairro: <%= bairro %>
+            cidade: <%= cidade %>
+            estado: <%= estado %>
+            email: <%= email %>
+            telefone: <%= telefone %>
+            profissao: <%= profissao %>
+        </div>
+
+        <h2>Histórico de Saúde</h2>
+        <div>
+            gravidez: <%= gravidez %>
+            amamentacao: <%= amamentacao %>
+            alergias: <%= alergias %>
+            quaisAlergias: <%= quaisAlergias %>
+            doencasInfantis: <%= doencasInfantis %>
+            quaisDoencasInfantis: <%= quaisDoencasInfantis %>
+            cirurgiasRecentes: <%= cirurgiasRecentes %>
+            quaisCirurgiasRecentes: <%= quaisCirurgiasRecentes %>
+
+                <!-- se não-patologias for true, retorna patologias vazio; não mostra -->
+                <!-- patologias1 = [] -->
+                <!-- quando patologias = [], patologias = false. se for true mostra patologias -->
+            <% if (!patologias1) {  %>
+                patologias1:
+            <% } %>
                     
-    <% if (!patologias3) {  %>
-    patologias3:
-    <% } %>
+            <% patologias1.forEach((patologia1) => { %>
+                <p><%= patologia1 %></p>
+            <% }) %>
+
+            <% if (!patologias2) {  %>                    
+                patologias2: 
+            <% } %>
+            <% patologias2.forEach((patologia2) => { %>
+                <p><%= patologia2 %></p>
+            <% }) %>
+                                    
+            <% if (!patologias3) {  %>
+                patologias3:
+            <% } %>
+                    
+            <% patologias3.forEach((patologia3) => { %>
+                <p><%= patologia3 %></p>
+            <% }) %>
+            
+            informacoesAdicionais1: <%= informacoesAdicionais1 %>
+        </div>
+
+        <h2>Hábitos diários</h2>
+        <div>
+            fumo: <%= fumo %>
+            frequenciaFumo: <%= frequenciaFumo %>
+            alcool: <%= alcool %>
+            frequenciaAlcool: <%= frequenciaAlcool %>
+            medicamentos: <%= medicamentos %>
+            quaisMedicamentos: <%= quaisMedicamentos %>
+            cosmeticos: <%= cosmeticos %>
+            quaisCosmeticos: <%= quaisCosmeticos %>
+            exposicaoSolar: <%= exposicaoSolar %>
+            frequenciaExposicaoSolar: <%= frequenciaExposicaoSolar %>
+            atividadeFisica: <%= atividadeFisica %>
+            frequenciaAtividadeFisica: <%= frequenciaAtividadeFisica %>
+            informacoesAdicionais2: <%= informacoesAdicionais2 %>
+        </div>
+        <h2>Declaração de Veracidade</h2>
+        <div>
+        <p>declaracaoDeVeracidade</p>
+        </div>
+        
+    </main>
     
-    <% patologias3.forEach((patologia3) => { %>
-        <p><%= patologia3 %></p>
-    <% }) %>
-informacoesAdicionais1: <%= informacoesAdicionais1 %>
-fumo: <%= fumo %>
-frequenciaFumo: <%= frequenciaFumo %>
-alcool: <%= alcool %>
-frequenciaAlcool: <%= frequenciaAlcool %>
-medicamentos: <%= medicamentos %>
-quaisMedicamentos: <%= quaisMedicamentos %>
-cosmeticos: <%= cosmeticos %>
-quaisCosmeticos: <%= quaisCosmeticos %>
-exposicaoSolar: <%= exposicaoSolar %>
-frequenciaExposicaoSolar: <%= frequenciaExposicaoSolar %>
-atividadeFisica: <%= atividadeFisica %>
-frequenciaAtividadeFisica: <%= frequenciaAtividadeFisica %>
-informacoesAdicionais2: <%= informacoesAdicionais2 %>
+    <%- include("../../components/footer.ejs"); %>
+</body>
+</html>

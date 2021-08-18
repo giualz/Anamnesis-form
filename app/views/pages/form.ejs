@@ -62,11 +62,12 @@
                     <div>
                         <div>
                             <span>Gravidez: </span>
-
+                            
                             <% gravidez.map((item) => { %>
                             <input type="radio" id="<%= item.id %>" name="gravidez" value="<%= item.id %>"/>
-                            <label for="<%= item.id %>"><%= item.descricao %></label>
+                            <label for="<%= item.id %>" ><%= item.descricao %></label>
                             <% }) %>
+                            
                         </div>
 
                         <div>
@@ -137,9 +138,9 @@
                             <% }) %>
                         </div>
                         <div>
-                            <label type="text" for="informacoesAdicionais1" >Insira informações adicionais que 
+                            <label for="informacoesAdicionais1" >Insira informações adicionais que 
                             julgar necessárias: </label>
-                            <input name="informacoesAdicionais1" id="informacoesAdicionais1" />
+                            <input type="text" name="informacoesAdicionais1" id="informacoesAdicionais1" />
                         </div>
 
                         <!-- <label for=""></label>
@@ -213,9 +214,9 @@
                         <input type="text" name="frequenciaAtividadeFisica" id="frequenciaAtividadeFisica" />
                     </div>
                     <div>
-                        <label type="text" for="informacoesAdicionais2">Insira informações adicionais que 
+                        <label  for="informacoesAdicionais2">Insira informações adicionais que 
                         julgar necessárias: </label>
-                        <input name="informacoesAdicionais2" id="informacoesAdicionais2" />
+                        <input type="text" name="informacoesAdicionais2" id="informacoesAdicionais2" />
                     </div>
                 </fieldset>
         </div>
@@ -224,12 +225,9 @@
         <div>
                 <fieldset>
                     <legend>Declaração de veracidade </legend>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet praesentium sequi
-                    quidem optio animi quasi officiis mollitia nemo et odit ipsam doloremque suscipit
-                    in natus esse saepe dignissimos neque nulla, delectus similique, enim distinctio. 
-                    Earum non dicta aspernatur facere consectetur accusantium ab officia impedit error 
-                    veritatis! Rem ullam odio, quia nobis quod officia tenetur, iure quo labore amet, 
-                    hic quas adipisci pariatur! Harum quae pariatur eos possimus sunt.</p>
+                    <input type="checkbox" id="declaracaoDeVeracidade" name="declaracaoDeVeracidade" />
+                    <label for="declaracaoDeVeracidade">Declaro que as informações acima são verdadeiras 
+                    e tenho ciência de que qualquer omissão pode prejudicar meu tratamento.</label>
                 </fieldset>
             <div>
                 <button>Enviar</button>

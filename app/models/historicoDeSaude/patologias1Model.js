@@ -27,7 +27,9 @@ const list = () => {
 
 const searchForID = (id) => {
     let result = []
+    //verifica se id é um array
     if (Array.isArray(id)) {
+        //cada elemento dentro do forEach passa a ter o nome item
         id.forEach(item => {
             result.push(patologias1DB[item].descricao)
         })

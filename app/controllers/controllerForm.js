@@ -50,7 +50,7 @@ const postForm = (req, res, next) => {
         cirurgiasRecentes, quaisCirurgiasRecentes, informacoesAdicionais1, patologias1, patologias2, patologias3,
         fumo, frequenciaFumo, alcool, frequenciaAlcool, medicamentos, quaisMedicamentos, cosmeticos, 
         quaisCosmeticos, exposicaoSolar, frequenciaExposicaoSolar, atividadeFisica, frequenciaAtividadeFisica, 
-        informacoesAdicionais2 } = req.body;
+        informacoesAdicionais2, declaracaoDeVeracidade } = req.body;
         
         const estadoSelecionado = estadosDB.searchForID(estado);
         const gravidezSelecionado = gravidezDB.searchForID(gravidez);
@@ -58,6 +58,7 @@ const postForm = (req, res, next) => {
         const alergiasSelecionado = alergiasDB.searchForID(alergias);
         const doencasInfantisSelecionado = doencasInfantisDB.searchForID(doencasInfantis);
         const cirurgiasRecentesSelecionado = cirurgiasRecentesDB.searchForID(cirurgiasRecentes);
+        //se tiver algo em patologias, executa o searchForID; caso contrário, retorna array vazio
         const patologias1Selecionado = patologias1 ? patologias1DB.searchForID(patologias1) : patologias1Selecionado = []
         const patologias2Selecionado = patologias2 ? patologias2DB.searchForID(patologias2) : patologias2Selecionado = []
         const patologias3Selecionado = patologias3 ? patologias3DB.searchForID(patologias3) : patologias3Selecionado = []
@@ -104,7 +105,8 @@ const postForm = (req, res, next) => {
             frequenciaExposicaoSolar, 
             atividadeFisica: atividadeFisicaSelecionado.descricao, 
             frequenciaAtividadeFisica, 
-            informacoesAdicionais2
+            informacoesAdicionais2,
+            declaracaoDeVeracidade
         };
         
         //montar o html
@@ -168,6 +170,7 @@ const postFormSchema = Joi.object({
     atividadeFisica: Joi.number().required(),
     frequenciaAtividadeFisica: Joi.string().allow(""),
     informacoesAdicionais2: Joi.string().allow(""),
+    declaracaoDeVeracidade: Joi.string().allow("").required()
 }).options({ allowUnknown: true });
 
 module.exports = {
