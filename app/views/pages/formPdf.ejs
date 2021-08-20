@@ -10,6 +10,7 @@
     margin: 0;
     padding: 0;
     outline: 0;
+    font-family: 'Roboto Slab', serif;
     }
 
     h1{
@@ -21,6 +22,10 @@
 
     h2{
         text-align: center;
+    }
+
+    ul{
+        text-decoration: none;
     }
 
     body{
@@ -39,6 +44,28 @@
         padding: 40px;
     }
 
+    .left{
+        width: 42%;
+    } 
+
+    .middle, .right{
+        width: 28%;
+    }
+
+    .pt1{
+        width: 50%;
+    }
+
+    .pt2{
+        width: 50%;
+    }
+    .line, .lineForm{
+        display: flex;
+        /* flex-direction: row !important; */
+        flex-flow: row wrap;
+        text-align: left;
+    }
+
     footer{
         margin: auto, 0, 0, 0;
         text-align: center;
@@ -54,30 +81,86 @@
     </header>
     <main>
         <h2>Dados Pessoais</h2>
+        <br>
         <div>
-            Nome: <%= nome %> 
-            Pronomes: <%= pronomes %>
-            Data de nascimento: <%= dataDeNascimento %>
-            Endereço: <%= endereco %>
-            CEP: <%= cep %>
-            Bairro: <%= bairro %>
-            Cidade: <%= cidade %>
-            Estado: <%= estado %>
-            Email: <%= email %>
-            Telefone: <%= telefone %>
-            Profissão: <%= profissao %>
+            <div class="line">
+                <div class="left">
+                <b>Nome:</b> <%= nome %> 
+                </div>
+                <div class="middle">
+                <b>Pronomes:</b> <%= pronomes %>
+                </div>
+            </div>   
+            <div class="left">
+                <b>Data de nascimento:</b> <%= dataDeNascimento %>
+            </div>
+            
+            <div class="line">
+                <div class="left">
+                <b>Endereço:</b> <%= endereco %>
+                </div>
+                <div class="right">
+                <b>CEP:</b> <%= cep %>
+                </div>
+            </div>
+            <div class="line">
+                <div class="left">
+                <b>Bairro:</b> <%= bairro %>
+                </div>
+                <div class="middle">
+                <b>Cidade:</b> <%= cidade %>
+                </div>
+                <div class="right">
+                <b>Estado:</b> <%= estado %>
+                </div>
+            </div>
+            <div class="line">
+                <div class="left">
+                <b>Email:</b> <%= email %>
+                </div>
+                <div class="middle">
+                <b>Telefone:</b> <%= telefone %>
+                </div>
+                <div class="right">
+                <b>Profissão:</b> <%= profissao %>
+                </div>
+            </div>
         </div>
-
+        <br>
         <h2>Histórico de Saúde</h2>
+        <br>
         <div>
-            Gravidez: <%= gravidez %>
-            Amamentação: <%= amamentacao %>
-            Alergias: <%= alergias %>
-            Quais: <%= quaisAlergias %>
-            Doenças infantis: <%= doencasInfantis %>
-            Quais: <%= quaisDoencasInfantis %>
-            Cirurgias recentes: <%= cirurgiasRecentes %>
-            Quais: <%= quaisCirurgiasRecentes %>
+            <div>
+                <b>Gravidez:</b> <%= gravidez %>
+            </div>
+            <div>
+                <b>Amamentação:</b> <%= amamentacao %>
+            </div>
+            <div class="lineForm">
+                <div class="pt1">
+                <b>Alergias:</b> <%= alergias %>
+                </div>
+                <div class="pt2">
+                <b>Quais:</b> <%= quaisAlergias %>
+                </div>
+            </div>
+            <div class="lineForm">
+                <div class="pt1">
+                <b>Doenças infantis:</b> <%= doencasInfantis %>
+                </div>
+                <div class="pt2">
+                <b>Quais:</b> <%= quaisDoencasInfantis %>
+                </div>
+            </div>
+            <div class="lineForm">
+                <div class="pt1">
+                <b>Cirurgias recentes:</b> <%= cirurgiasRecentes %>
+                </div>
+                <div class="pt2">
+                <b>Quais:</b> <%= quaisCirurgiasRecentes %>
+            </div>
+            </div>
+            <br>
             <h3>Patologias</h3>
             <ul>
                 <!-- se não-patologias for true, retorna patologias vazio; não mostra -->
@@ -107,26 +190,67 @@
                     <li><p><%= patologia3 %></p></li>
                 <% }) %>
             </ul>
-            Informações adicionais: <%= informacoesAdicionais1 %>
+            <br>
+            <b>Informações adicionais:</b> <%= informacoesAdicionais1 %>
         </div>
-
+        <br>
         <h2>Hábitos diários</h2>
+        <br>
         <div>
-            Fumo: <%= fumo %>
-            Frequência: <%= frequenciaFumo %>
-            Álcool: <%= alcool %>
-            Frequência: <%= frequenciaAlcool %>
-            Medicamentos: <%= medicamentos %>
-            Quais: <%= quaisMedicamentos %>
-            Cosméticos: <%= cosmeticos %>
-            Quais: <%= quaisCosmeticos %>
-            Exposição Solar: <%= exposicaoSolar %>
-            Frequência: <%= frequenciaExposicaoSolar %>
-            Atividade Física: <%= atividadeFisica %>
-            Frequência: <%= frequenciaAtividadeFisica %>
-            Informações adicionais: <%= informacoesAdicionais2 %>
+            <div class="lineForm">
+                <div class="pt1">
+                <b>Fumo:</b> <%= fumo %>
+                </div>
+                <div class="pt2">
+                <b>Frequência:</b> <%= frequenciaFumo %>
+                </div>
+            </div>
+            <div class="lineForm">
+                <div class="pt1">
+                <b>Álcool:</b> <%= alcool %>
+                </div>
+                <div class="pt2">
+                <b>Frequência:</b> <%= frequenciaAlcool %>
+                </div>
+            </div>
+            <div class="lineForm">
+                <div class="pt1">
+                <b>Medicamentos:</b> <%= medicamentos %>
+                </div>
+                <div class="pt2">
+                <b>Quais:</b> <%= quaisMedicamentos %>
+                </div>
+            </div>
+            <div class="lineForm">
+                <div class="pt1">
+                <b>Cosméticos:</b> <%= cosmeticos %>
+                </div>
+                <div class="pt2">
+                <b>Quais:</b> <%= quaisCosmeticos %>
+                </div>
+            </div>
+            <div class="lineForm">
+                <div class="pt1">
+                <b>Exposição Solar:</b> <%= exposicaoSolar %>
+                </div>
+                <div class="pt2">
+                <b>Frequência:</b> <%= frequenciaExposicaoSolar %>
+                </div>
+            </div>
+            <div class="lineForm">
+                <div class="pt1">
+                <b>Atividade Física:</b> <%= atividadeFisica %>
+                </div>
+                <div class="pt2">
+                <b>Frequência:</b> <%= frequenciaAtividadeFisica %>
+                </div>
+            </div>
+            <br>
+            <b>Informações adicionais:</b> <%= informacoesAdicionais2 %>
         </div>
+        <br>
         <h2>Declaração de Veracidade</h2>
+        <br>
         <div>
         <p>Declaro que as informações acima são verdadeiras e tenho ciência de que qualquer omissão 
         pode prejudicar meu tratamento.</p>

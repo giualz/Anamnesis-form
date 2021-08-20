@@ -123,7 +123,7 @@ const postForm = (req, res, next) => {
         
         const configuracoes = {
             format: 'A4',
-        printBackground: true
+            printBackground: true
     };
     
     htmlToPdf.generatePdf(file, configuracoes)

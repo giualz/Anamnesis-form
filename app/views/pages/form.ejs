@@ -8,32 +8,36 @@
         <div>
 <!-- Dados pessoais -->
             <form action="/form" method="POST">
-                <fieldset>
+                <fieldset class="personalInfo">
                     <legend>Dados pessoais </legend>
 
-                    <div>
+                    <div class="content">
+                        <!-- <div class="form-group"> -->
                         <label for="nome">Nome: </label>
-                        <input name="nome" type="text" id="nome"/>
-
+                        <input class="longerInput" name="nome" type="text" id="nome"/>
+                        <!-- </div>
+                        <div class="form-group"> -->
                         <label for="pronomes">Pronomes: </label>
                         <input name="pronomes" type="text" id="pronomes" />
-                        
+                        <!-- </div> -->
+                        <!-- <div class="form-group"> -->
                         <label for="dataDeNascimento">Data de nascimento: </label>
                         <input name="dataDeNascimento" type="date" id="dataDeNascimento"/>
+                        <!-- </div> -->
                     </div>
-                    <div>
+                    <div class="content">
                         <label for="endereco">Endereço: </label>
-                        <input name="endereco" type="text" id="endereco"/>
+                        <input class="longerInput" name="endereco" type="text" id="endereco"/>
 
                         <label for="cep">CEP: </label>
                         <input name="cep" type="number" id="cep" />
                     </div>
-                    <div>
+                    <div class="content">
                         <label for="bairro">Bairro: </label>
-                        <input name="bairro" type="text" id="bairro" />
+                        <input class="longerInput" name="bairro" type="text" id="bairro" />
 
                         <label for="cidade">Cidade: </label>
-                        <input name="cidade" type="text" id="cidade"/>
+                        <input class="longerInput" name="cidade" type="text" id="cidade"/>
 
                         <label for="estado">Estado: </label>
                         <select name="estado" id="estado" required>
@@ -43,9 +47,9 @@
                             <% }) %>
                         </select>
                     </div>
-                    <div>
+                    <div class="content">
                         <label for="email">Email: </label>
-                        <input name="email" type="email" id="email" />
+                        <input class="longerInput" name="email" type="email" id="email" />
 
                         <label for="telefone">Telefone: </label>
                         <input name="telefone" type="phone" id="telefone"/>
@@ -60,57 +64,62 @@
                 <fieldset>
                     <legend>Histórico de saúde </legend>
                     <div>
-                        <div>
-                            <span>Gravidez: </span>
-                            
+                        <div class="linha">
+                            <span class="left">Gravidez: </span>
+                            <div class="middle">
                             <% gravidez.map((item) => { %>
                             <input type="radio" id="<%= item.id %>" name="gravidez" value="<%= item.id %>"/>
                             <label for="<%= item.id %>" ><%= item.descricao %></label>
                             <% }) %>
-                            
+                            </div>
                         </div>
 
-                        <div>
-                            <span>Amamentacão: </span>
-
+                        <div class="linha">
+                            <span class="left">Amamentacão: </span>
+                            <div class="middle">
                             <% amamentacao.map((item) => { %>
                             <input type="radio" id="<%= item.id %>" name="amamentacao" value="<%= item.id %>"/>
                             <label for="<%= item.id %>"><%= item.descricao %></label>
                             <% }) %>
+                            </div>
                         </div>
-                        <div>
-                            <span>Alergias: </span>
-
+                        <div class="linha">
+                            <span class="left">Alergias: </span>
+                            <div class="middle">
                             <% alergias.map((item) => { %>
                             <input type="radio" id="<%= item.id %>" name="alergias" value="<%= item.id %>"/>
                             <label for="<%= item.id %>"><%= item.descricao %></label>
                             <% }) %>
+                            </div>
+                            <div class="right">
                             <label for="quaisAlergias">Quais: </label>
                             <input type="text" name="quaisAlergias" id="quaisAlergias" />
-                            
+                            </div>
                         </div>
-                        <div>
-                            <span name="doencasInfantis">Doenças infantis: </span>
-
+                        <div class="linha">
+                            <span class="left" name="doencasInfantis">Doenças infantis: </span>
+                            <div class="middle">
                             <% doencasInfantis.map((item) => { %>
                             <input type="radio" id="<%= item.id %>" name="doencasInfantis" value="<%= item.id %>"/>
                             <label for="<%= item.id %>"><%= item.descricao %></label>
                             <% }) %>
+                            </div>
                             <label for="quaisDoençasInfantis">Quais: </label>
                             <input type="text" name="quaisDoencasInfantis id="quaisDoencasInfantis" />
                         </div>
-                        <div>
-                            <span>Cirurgias recentes: </span>
-
+                        <div class="linha">
+                            <span class="left">Cirurgias recentes: </span>
+                            <div class="middle">
                             <% cirurgiasRecentes.map((item) => { %>
                             <input type="radio" id="<%= item.id %>" name="cirurgiasRecentes" value="<%= item.id %>"/>
                             <label for="<%= item.id %>"><%= item.descricao %></label>
                             <% }) %>
+                            </div>
                             <label for="quaisCirurgiasRecentes">Quais: </label>
                             <input type="text" name="quaisCirurgiasRecentes" id="quaisCirurgiasRecentes" />
                         </div>
                     </div>
-                    
+                    <br>
                     <h3>Patologias</h3>
 
                     <div class="linha">
@@ -137,15 +146,16 @@
 
                             <% }) %>
                         </div>
-                        <div>
-                            <label for="informacoesAdicionais1" >Insira informações adicionais que 
+                    </div>
+                    <br>
+                        <div class="content">
+                            <label  for="informacoesAdicionais1">Insira informações adicionais que 
                             julgar necessárias: </label>
-                            <input type="text" name="informacoesAdicionais1" id="informacoesAdicionais1" />
+                            <input class="longerInput" type="text" name="informacoesAdicionais1" id="informacoesAdicionais1" />
                         </div>
-
                         <!-- <label for=""></label>
                         <input type="checkbox" id="" /> -->
-                    </div>
+                    
                 </fieldset>
         </div>
 
@@ -153,70 +163,77 @@
         <div>
                 <fieldset>
                     <legend>Hábitos diários </legend>
-                    <div>
-                        <span>Fumo: </span>
-
+                    <div class="linha" class="content">
+                        <span class="left">Fumo: </span>
+                        <div class="middle">
                         <% fumo.map((item) => { %>
                         <input type="radio" id="<%= item.id %>" name="fumo" value="<%= item.id %>"/>
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
+                        </div>
                         <label for="frequenciaFumo">Frequência: </label>
-                        <input type="text" name="frequenciaFumo" id="frequenciaFumo" />
+                        <input class="longerInput" type="text" name="frequenciaFumo" id="frequenciaFumo" />
                     </div>
-                    <div>
-                        <span>Álcool: </span>
-
+                    <div class="linha" class="content">
+                        <span class="left">Álcool: </span>
+                        <div class="middle">
                         <% alcool.map((item) => { %>
                         <input type="radio" id="<%= item.id %>" name="alcool" value="<%= item.id %>"/>
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
+                        </div>
                         <label for="frequenciaAlcool">Frequência: </label>
-                        <input type="text" name="frequenciaAlcool" id="frequenciaAlcool" />
+                        <input class="longerInput" type="text" name="frequenciaAlcool" id="frequenciaAlcool" />
                     </div>
-                    <div>
-                        <span>Medicamentos: </span>
-
+                    <div class="linha" class="content">
+                        <span class="left">Medicamentos: </span>
+                        <div class="middle">
                         <% medicamentos.map((item) => { %>
                         <input type="radio" id="<%= item.id %>" name="medicamentos" value="<%= item.id %>"/>
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
+                        </div>
                         <label for="quaisMedicamentos">Quais: </label>
-                        <input type="text" name="quaisMedicamentos" id="quaisMedicamentos" />
+                        <input class="longerInput" type="text" name="quaisMedicamentos" id="quaisMedicamentos" />
                     </div>
-                    <div>
-                        <span>Cosméticos na área a ser tratada: </span>
-
+                    <div class="linha" class="content">
+                        <span class="left">Cosméticos na área a ser tratada: </span>
+                        <div class="middle">
                         <% cosmeticos.map((item) => { %>
                         <input type="radio" id="<%= item.id %>" name="cosmeticos" value="<%= item.id %>"/>
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
+                        </div>
                         <label for="quaisCosmeticos">Quais: </label>
-                        <input type="text" name="quaisCosmeticos" id="quaisCosmeticos" />
+                        <input class="longerInput" type="text" name="quaisCosmeticos" id="quaisCosmeticos" />
                     </div>
-                    <div>
-                        <span>Exposição solar: </span>
-
+                    <div class="linha" class="content">
+                        <span class="left">Exposição solar: </span>
+                        <div class="middle">
                         <% exposicaoSolar.map((item) => { %>
                         <input type="radio" id="<%= item.id %>" name="exposicaoSolar" value="<%= item.id %>"/>
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
+                        </div>
                         <label for="frequenciaExposicaoSolar">Frequência: </label>
-                        <input type="text" name="frequenciaExposicaoSolar" id="frequenciaExposicaoSolar" />
+                        <input class="longerInput" type="text" name="frequenciaExposicaoSolar" id="frequenciaExposicaoSolar" />
                     </div>
-                    <div>
-                        <span>Atividade Física: </span>
-
+                    <div class="linha" class="content">
+                        <span class="left">Atividade Física: </span>
+                        <div class="middle">
                         <% atividadeFisica.map((item) => { %>
                         <input type="radio" id="<%= item.id %>" name="atividadeFisica" value="<%= item.id %>"/>
                         <label for="<%= item.id %>"><%= item.descricao %></label>
                         <% }) %>
+                        </div>
                         <label for="frequenciaAtividadeFisica">Quais: </label>
-                        <input type="text" name="frequenciaAtividadeFisica" id="frequenciaAtividadeFisica" />
+                        <input class="longerInput" type="text" name="frequenciaAtividadeFisica" id="frequenciaAtividadeFisica" />
                     </div>
-                    <div>
-                        <label  for="informacoesAdicionais2">Insira informações adicionais que 
+                    <br>
+                    <div class="content">
+                        <label for="informacoesAdicionais2">Insira informações adicionais que 
                         julgar necessárias: </label>
-                        <input type="text" name="informacoesAdicionais2" id="informacoesAdicionais2" />
+                        <input class="longerInput" type="text" name="informacoesAdicionais2" id="informacoesAdicionais2" />
                     </div>
                 </fieldset>
         </div>
