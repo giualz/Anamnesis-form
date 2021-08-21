@@ -105,6 +105,14 @@ legend{
     font-size: larger;
 }
 
+button{
+    background-color: #4A4A6B;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 120px
+}
+
 .patologias1, .patologias2, .patologias3{
     width: 33%;
 }
@@ -121,44 +129,11 @@ legend{
     display: flex;
     flex-flow: row wrap;
     text-align: left;
-    }
-
-/* .infoAdd{
-    display: flex;
-    align-content: stretch;
-} */
-
-/* .stretch{
-    flex: 1;
-} */
-    /* .form-group {
-        display: flex;
-        align-content: stretch;
-      }
-    
-      .group div {
-        align-content: stretch;
-      } */
-
-      /* .content {
-          display:flex;
-        align-content: stretch;
-      } */
-            
-      
-/* .linhaDiv{
-    display: flex;
-    
 }
-.infoAdd{
-    /* flex: 1; */
-/*     
-    flex-grow: 1;
-} */
 
 .stretch{
     align-items: stretch;
-} */
+} 
 
 .sobreTítulo{
     color: #3579B5;
@@ -173,8 +148,6 @@ legend{
 }
 
 .container{
-    /* align-self: left;
-    float: left; */
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -33,18 +33,7 @@ const searchForID = (id) => {
             })
             return result
         }
-}
-
-// const searchForID = (id) => {
-//     const result = patologias3DB.filter((item) => {
-//         return parseInt(item.id) === parseInt(id)
-//     })
-//     if(result.length > 0){
-//             return result[0]
-//         }else{
-//             return undefined
-//         }
-//     }
+};
 
 const searchForDescricao = ((descricao) => {
     const result = descricao.filter((item) => {

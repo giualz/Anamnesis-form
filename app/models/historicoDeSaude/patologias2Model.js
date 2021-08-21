@@ -27,25 +27,13 @@ const list = () => {
 
 const searchForID = (id) => {
     let result = []
-    // console.log(id);
         if (Array.isArray(id)) {
             id.forEach(item => {
                 result.push(patologias2DB[item].descricao)
             })
-            // console.log(result)
             return result
         }
-}
-
-    // const result = patologias2DB.filter((item) => {
-    //     return parseInt(item.id) === parseInt(id)
-    // })
-    // if(result.length > 0){
-    //         return result[0]
-    //     }else{
-    //         return undefined
-    //     }
-    // }
+};
 
 const searchForDescricao = ((descricao) => {
     const result = descricao.filter((item) => {
