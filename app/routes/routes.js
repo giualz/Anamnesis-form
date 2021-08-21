@@ -1,11 +1,9 @@
 const express = require("express");
 
-
 const routeHome = require("./routeHome");
 const routeAbout = require("./routeAbout");
 const routeForm = require("./routeForm");
 
-//app = express()
 //express.Router = função do express para routes
 module.exports = (app) => {
     const router = express.Router();

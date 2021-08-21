@@ -22,6 +22,10 @@ header{
     background-color: #d8bfd8;
 }
 
+.desenvolvidoPor{
+    margin:25px;
+}
+
 li{
     list-style: none;
     display: inline-block;

@@ -12,19 +12,17 @@
                     <legend>Dados pessoais </legend>
 
                     <div class="content">
-                        <!-- <div class="form-group"> -->
                         <label for="nome">Nome: </label>
                         <input class="longerInput" name="nome" type="text" id="nome"/>
-                        <!-- </div>
-                        <div class="form-group"> -->
+
                         <label for="pronomes">Pronomes: </label>
                         <input name="pronomes" type="text" id="pronomes" />
-                        <!-- </div> -->
-                        <!-- <div class="form-group"> -->
+
                         <label for="dataDeNascimento">Data de nascimento: </label>
                         <input name="dataDeNascimento" type="date" id="dataDeNascimento"/>
-                        <!-- </div> -->
+              
                     </div>
+
                     <div class="content">
                         <label for="endereco">Endereço: </label>
                         <input class="longerInput" name="endereco" type="text" id="endereco"/>
@@ -32,6 +30,7 @@
                         <label for="cep">CEP: </label>
                         <input name="cep" type="text" id="cep" />
                     </div>
+
                     <div class="content">
                         <label for="bairro">Bairro: </label>
                         <input class="longerInput" name="bairro" type="text" id="bairro" />
@@ -47,6 +46,7 @@
                             <% }) %>
                         </select>
                     </div>
+
                     <div class="content">
                         <label for="email">Email: </label>
                         <input class="longerInput" name="email" type="email" id="email" />
@@ -83,6 +83,7 @@
                             <% }) %>
                             </div>
                         </div>
+
                         <div class="linha">
                             <span class="left">Alergias: </span>
                             <div class="middle">
@@ -96,6 +97,7 @@
                             <input type="text" name="quaisAlergias" id="quaisAlergias" />
                             </div>
                         </div>
+
                         <div class="linha">
                             <span class="left" name="doencasInfantis">Doenças infantis: </span>
                             <div class="middle">
@@ -107,6 +109,7 @@
                             <label for="quaisDoençasInfantis">Quais: </label>
                             <input type="text" name="quaisDoencasInfantis id="quaisDoencasInfantis" />
                         </div>
+
                         <div class="linha">
                             <span class="left">Cirurgias recentes: </span>
                             <div class="middle">
@@ -153,12 +156,8 @@
                             julgar necessárias: </label>
                             <input class="longerInput" type="text" name="informacoesAdicionais1" id="informacoesAdicionais1" />
                         </div>
-                        <!-- <label for=""></label>
-                        <input type="checkbox" id="" /> -->
-                    
                 </fieldset>
         </div>
-
 <!-- Hábitos -->
         <div>
                 <fieldset>
@@ -174,6 +173,7 @@
                         <label for="frequenciaFumo">Frequência: </label>
                         <input class="longerInput" type="text" name="frequenciaFumo" id="frequenciaFumo" />
                     </div>
+
                     <div class="linha" class="content">
                         <span class="left">Álcool: </span>
                         <div class="middle">
@@ -185,6 +185,7 @@
                         <label for="frequenciaAlcool">Frequência: </label>
                         <input class="longerInput" type="text" name="frequenciaAlcool" id="frequenciaAlcool" />
                     </div>
+
                     <div class="linha" class="content">
                         <span class="left">Medicamentos: </span>
                         <div class="middle">
@@ -196,6 +197,7 @@
                         <label for="quaisMedicamentos">Quais: </label>
                         <input class="longerInput" type="text" name="quaisMedicamentos" id="quaisMedicamentos" />
                     </div>
+
                     <div class="linha" class="content">
                         <span class="left">Cosméticos na área a ser tratada: </span>
                         <div class="middle">
@@ -207,6 +209,7 @@
                         <label for="quaisCosmeticos">Quais: </label>
                         <input class="longerInput" type="text" name="quaisCosmeticos" id="quaisCosmeticos" />
                     </div>
+
                     <div class="linha" class="content">
                         <span class="left">Exposição solar: </span>
                         <div class="middle">
@@ -218,6 +221,7 @@
                         <label for="frequenciaExposicaoSolar">Frequência: </label>
                         <input class="longerInput" type="text" name="frequenciaExposicaoSolar" id="frequenciaExposicaoSolar" />
                     </div>
+
                     <div class="linha" class="content">
                         <span class="left">Atividade Física: </span>
                         <div class="middle">
@@ -237,7 +241,6 @@
                     </div>
                 </fieldset>
         </div>
-
 <!-- Declaração de veracidade -->
         <div>
                 <fieldset>
@@ -251,11 +254,9 @@
                 <button>Enviar</button>
             </div>    
             <br>
-            
         </div>
         </form>
     </main>
-
     <%- include("../../components/footer.ejs"); %>
 </body>
 </html>
