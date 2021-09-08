@@ -10,7 +10,7 @@ pipeline {
      stage('Cloning Git') {
        steps{
          git(
-            url: 'https://gitlab.com/giulia.souza/project-1.git',
+            url: 'https://github.com/giualz/Anamnesis-form.git',
             branch: "${GIT_BRANCH}"
          )
         }
